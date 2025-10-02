@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gsm Technology - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-row">
+  <div class="brand">Gsm Technology</div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <div class="actions">
+        <input id="search" placeholder="Search products..." />
+        <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <h1>Wholesale electronics, accessories and unlocking services</h1>
+          <p>Fast shipping, competitive pricing, global support — demo clone for educational purposes.</p>
+          <a href="products.html" class="btn">Shop Products</a>
+        </div>
+        <div class="hero-right">
+          <img src="https://gsmserver.com/image/logo/logo-gsm.svg" alt="Gsm Technology" style="width:100%;max-width:320px" onerror="this.style.opacity=0.15" />
+        </div>
+      </div>
+    </section>
+
+    <section class="featured container">
+      <h2>Featured Products</h2>
+      <div id="products-grid" class="grid">
+        <!-- products injected by app.js -->
+      </div>
+    </section>
+
+    <section class="mini-features container">
+      <div class="feature">Fast Global Shipping</div>
+      <div class="feature">Secure Payments</div>
+      <div class="feature">24/7 Support</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+  <div>© 2025 Gsm Technology — For educational/demo use only.</div>
+      <div class="links">
+        <a href="#">Terms</a> · <a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="chat-widget" class="chat-closed">
+    <div class="chat-header">Chat with us</div>
+    <div class="chat-body">
+      <div id="chat-messages"></div>
+      <div class="chat-input-row">
+        <input id="chat-input" placeholder="Ask about products or pricing..." />
+        <button id="chat-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

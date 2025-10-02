@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.vscode/
+env/
+node_modules/
+*.log
+/.idea/
+data/*.json
+!data/products_stock.json
+!data/orders.json
+!data/invoices.json
+*.bak

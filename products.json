@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 12 - Unlocked",
+    "price": 229.99,
+    "image": "https://i12.psgsm.net/gsm.com/p/894337/480/octoplus-full-1-year-digital-license.webp?75e7d736be0bb7d02148b532501cdeaa",
+    "desc": "Refurbished unlocked iPhone 12, good condition.",
+    "stock": 12
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S21 - New",
+    "price": 299.99,
+    "image": "https://i12.psgsm.net/gsm.com/p/894337/480/octoplus-full-1-year-digital-license.webp?75e7d736be0bb7d02148b532501cdeaa",
+    "desc": "Brand new Samsung Galaxy S21, wholesale quantity available.",
+    "stock": 50
+  },
+  {
+    "id": 3,
+    "name": "Xiaomi Redmi Note 10",
+    "price": 119.99,
+    "image": "https://i12.psgsm.net/gsm.com/p/894337/480/octoplus-full-1-year-digital-license.webp?75e7d736be0bb7d02148b532501cdeaa",
+    "desc": "Budget-friendly smartphone for mass orders.",
+    "stock": 80
+  },
+  {
+    "id": 4,
+    "name": "USB-C Charging Cable (1m)",
+    "price": 2.49,
+    "image": "https://i12.psgsm.net/gsm.com/p/894337/480/octoplus-full-1-year-digital-license.webp?75e7d736be0bb7d02148b532501cdeaa",
+    "desc": "Durable braided USB-C cable, bulk packs.",
+    "stock": 1000
+  },
+  {
+    "id": 5,
+    "name": "Tempered Glass Screen Protector",
+    "price": 0.99,
+    "image": "https://i12.psgsm.net/gsm.com/p/894337/480/octoplus-full-1-year-digital-license.webp?75e7d736be0bb7d02148b532501cdeaa",
+    "desc": "Easy-install tempered glass, per-unit pricing.",
+    "stock": 5000
+  },
+  {
+    "id": 6,
+    "name": "Wholesale Battery Pack 10000mAh",
+    "price": 14.99,
+    "image": "https://i12.psgsm.net/gsm.com/p/894337/480/octoplus-full-1-year-digital-license.webp?75e7d736be0bb7d02148b532501cdeaa",
+    "desc": "High-capacity power banks with QC3 support.",
+    "stock": 320
+  },
+  {
+    "id": 894337,
+    "name": "Octoplus Full 1 Year Digital License",
+    "price": 129.0,
+    "image": "https://i12.psgsm.net/gsm.com/p/894337/480/octoplus-full-1-year-digital-license.webp?75e7d736be0bb7d02148b532501cdeaa",
+    "desc": "Octoplus Full combines all available licenses together.",
+    "stock": 9999
+  },
+  {
+    "id": 919483,
+    "name": "Sigma Plus 3 Day License",
+    "price": 8.49,
+    "image": "https://i00.psgsm.net/gsm.com/p/919483/480/sigma-plus-3-day-license.webp?6b6220d4a3b67792fe374243048cc413",
+    "desc": "Sigma Plus 3-day access license.",
+    "stock": 9999
+  },
+  {
+    "id": 927226,
+    "name": "iCloud Bypass for iPad Pro 12.9-inch 3rd Gen",
+    "price": 69.0,
+    "image": "https://i96.psgsm.net/gsm.com/p/927226/480/icloud-bypass-for-ipad-pro-12-9-inch-3rd-gen-cellular-no-signal-and-wifi.webp?dbb01b2f88b44338bfd5ee393161e452",
+    "desc": "iCloud bypass operation for iPad Pro (note: may affect cellular signal).",
+    "stock": 9999
+  },
+  {
+    "id": 85253822800,
+    "url": "https://wa.me/85253822800",
+    "name": null,
+    "price": null,
+    "images": [
+      "https://static.whatsapp.net/rsrc.php/v4/yq/r/mdQNdcFMi0p.png"
+    ],
+    "description": ""
+  },
+  {
+    "id": 85293649534,
+    "url": "https://wa.me/85293649534",
+    "name": null,
+    "price": null,
+    "images": [
+      "https://static.whatsapp.net/rsrc.php/v4/yq/r/mdQNdcFMi0p.png"
+    ],
+    "description": ""
+  },
+  {
+    "id": 568137493302217,
+    "url": "https://www.facebook.com/help/568137493302217",
+    "name": "Adjust how ads on Facebook are shown to you based on your activity information from ad partners",
+    "price": null,
+    "images": [
+      "https://static.xx.fbcdn.net/rsrc.php/v4/yF/r/h9b1AHfIb8K.png"
+    ],
+    "description": ""
+  }
+]

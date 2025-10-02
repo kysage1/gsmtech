@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Checkout - Gsm Technology</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="container"><a href="/" class="logo">Gsm Technology</a></div></header>
+  <main class="container">
+    <h1>Checkout (Demo)</h1>
+    <p>This is an educational checkout demo replicating guest checkout and account creation options.</p>
+
+    <form id="checkout-form">
+      <fieldset>
+        <legend>Contact</legend>
+        <label>Email: <input type="email" name="email" id="email" required></label>
+        <label>Phone: <input type="tel" name="phone" id="phone"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Billing Address</legend>
+        <label>Full name: <input name="name" id="name" required></label>
+        <label>Address: <input name="address" id="address" required></label>
+        <label>Country: <input name="country" id="country"></label>
+        <label>Postal Code: <input name="postal" id="postal"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Account</legend>
+        <label><input type="checkbox" id="create-account"> Create an account for faster checkout later</label>
+        <div id="account-fields" style="display:none; margin-top:8px;">
+          <label>Password: <input type="password" id="password"></label>
+          <label>Confirm: <input type="password" id="password2"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Payment method</legend>
+        <label><input type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
+        <label><input type="radio" name="payment" value="paypal"> PayPal</label>
+        <label><input type="radio" name="payment" value="bank"> Bank Transfer</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Order summary</legend>
+        <div id="order-summary">
+          <p>Demo product: Octoplus Full 1 Year Digital License — USD 129.00</p>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn">Place order</button>
+    </form>
+
+    <div id="result" style="margin-top:16px;"></div>
+  </main>
+
+  <script>
+    const createAccount = document.getElementById('create-account');
+    const accountFields = document.getElementById('account-fields');
+    createAccount.addEventListener('change', (e)=>{
+      accountFields.style.display = e.target.checked ? 'block' : 'none';
+    });
+
+    document.getElementById('checkout-form').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const resultEl = document.getElementById('result');
+      const data = {
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        name: document.getElementById('name').value,
+        address: document.getElementById('address').value,
+        country: document.getElementById('country').value,
+        postal: document.getElementById('postal').value,
+        payment: document.querySelector('input[name=payment]:checked').value,
+        items: [{id:894337, title:'Octoplus Full 1 Year Digital License', price:129.00}],
+        createAccount: document.getElementById('create-account').checked
+      };
+
+      if (data.createAccount) {
+        const pwd = document.getElementById('password').value;
+        const pwd2 = document.getElementById('password2').value;
+        if (!pwd || pwd !== pwd2) { resultEl.textContent = 'Passwords are empty or do not match.'; return; }
+        data.password = pwd;
+      }
+
+      // Try to POST to mock API, otherwise fallback to localStorage
+      try {
+        const resp = await fetch('/api/checkout', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)});
+        if (!resp.ok) throw new Error('Server error');
+        const body = await resp.json();
+        resultEl.innerHTML = '<strong>Order placed (mock)</strong><br>Order ID: '+body.order_id;
+        if (data.createAccount) {
+          // create user
+          await fetch('/api/signup', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email:data.email,password:data.password})});
+        }
+      } catch (err) {
+        // fallback: save to localStorage as demo
+        const orders = JSON.parse(localStorage.getItem('mock_orders')||'[]');
+        const id = Date.now();
+        orders.push(Object.assign({order_id:id}, data));
+        localStorage.setItem('mock_orders', JSON.stringify(orders));
+        resultEl.innerHTML = '<strong>Offline demo:</strong> Order saved to localStorage. Order ID: '+id;
+      }
+    });
+  </script>
+</body>
+</html>
