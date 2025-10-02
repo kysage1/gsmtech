@@ -1,30 +1,426 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Product - Gsm Technology</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - GSM Technology</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2rem 0;
+    }
+    
+    .product-images {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .main-image {
+      width: 100%;
+      height: 500px;
+      object-fit: contain;
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    
+    .thumbnail-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+    
+    .thumbnail {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    
+    .thumbnail:hover,
+    .thumbnail.active {
+      border-color: var(--primary);
+    }
+    
+    .product-info h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .product-price-section {
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+    
+    .product-price-large {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .quantity-input {
+      display: flex;
+      align-items: center;
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .quantity-input button {
+      background: white;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .quantity-input button:hover {
+      background: var(--bg-tertiary);
+    }
+    
+    .quantity-input input {
+      width: 60px;
+      text-align: center;
+      border: none;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .tabs {
+      margin-top: 3rem;
+    }
+    
+    .tab-buttons {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border-light);
+      margin-bottom: 2rem;
+    }
+    
+    .tab-button {
+      background: transparent;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      margin-bottom: -2px;
+    }
+    
+    .tab-button:hover {
+      color: var(--primary);
+    }
+    
+    .tab-button.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .spec-table tr {
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .spec-table td {
+      padding: 1rem;
+    }
+    
+    .spec-table td:first-child {
+      font-weight: 600;
+      color: var(--text-secondary);
+      width: 40%;
+    }
+    
+    @media (max-width: 768px) {
+      .product-detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-row">
-  <div class="brand">Gsm Technology</div>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <div class="actions">
-        <input id="search" placeholder="Search products..." />
-        <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-content">
+        <div class="top-bar-left">
+          <span>📧 support@gsmtechnology.com</span>
+          <span>📞 +1 (800) 123-4567</span>
+        </div>
+        <div class="top-bar-right">
+          <div class="language-selector">
+            <select id="language-select">
+              <option value="en">🇬🇧 English</option>
+              <option value="es">🇪🇸 Español</option>
+              <option value="fr">🇫🇷 Français</option>
+              <option value="de">🇩🇪 Deutsch</option>
+              <option value="zh">🇨🇳 中文</option>
+            </select>
+          </div>
+          <div class="currency-selector">
+            <select id="currency-select">
+              <option value="USD">$ USD</option>
+              <option value="EUR">€ EUR</option>
+              <option value="GBP">£ GBP</option>
+              <option value="JPY">¥ JPY</option>
+              <option value="CNY">¥ CNY</option>
+            </select>
+          </div>
+          <a href="info/checkout.html">Track Order</a>
+        </div>
       </div>
     </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <a href="index.html" class="logo">
+          <img src="assets/logos/logo.svg" alt="GSM Technology">
+        </a>
+        
+        <div class="search-bar">
+          <form class="search-form" onsubmit="return false;">
+            <input 
+              type="text" 
+              class="search-input" 
+              id="main-search" 
+              placeholder="Search for products, brands, or categories..."
+              autocomplete="off"
+            >
+            <button type="submit" class="search-btn">Search</button>
+          </form>
+        </div>
+
+        <div class="header-actions">
+          <button class="header-action-btn" onclick="location.href='support.html'">
+            <span>👤</span>
+            <span>Account</span>
+          </button>
+          <button class="cart-btn" onclick="location.href='info/checkout.html'">
+            🛒 Cart <span class="cart-count" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="categories/boxes-and-dongles.html" class="nav-link">Boxes & Dongles</a></li>
+          <li class="nav-item"><a href="categories/cables-and-adapters.html" class="nav-link">Cables & Adapters</a></li>
+          <li class="nav-item"><a href="categories/spares.html" class="nav-link">Parts & Accessories</a></li>
+          <li class="nav-item"><a href="categories/equipment.html" class="nav-link">Repair Equipment</a></li>
+          <li class="nav-item"><a href="categories/credits-and-activations.html" class="nav-link">Credits & Activations</a></li>
+          <li class="nav-item"><a href="blog/index.html" class="nav-link">Blog & News</a></li>
+          <li class="nav-item"><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
-  <main></main>
-  <footer class="site-footer"><div class="container">© Gsm Technology</div></footer>
-  <div id="chat-widget" class="chat-closed"><div class="chat-header">Chat with us</div><div class="chat-body"><div id="chat-messages"></div><div class="chat-input-row"><input id="chat-input" placeholder="Ask about products or pricing..." /><button id="chat-send">Send</button></div></div></div>
-  <script src="app.js" defer></script>
+
+  <main class="container" style="margin-top: 2rem; margin-bottom: 2rem;">
+    <!-- Breadcrumb -->
+    <nav style="margin-bottom: 2rem; color: #64748b; font-size: 0.875rem;">
+      <a href="index.html" style="color: inherit;">Home</a> / 
+      <a href="products.html" style="color: inherit;">Products</a> / 
+      <span id="breadcrumb-product">Product</span>
+    </nav>
+
+    <!-- Product Detail -->
+    <div class="product-detail-grid">
+      <div class="product-images">
+        <img id="main-image" src="assets/images/placeholder.svg" alt="Product" class="main-image">
+        <div class="thumbnail-gallery" id="thumbnail-gallery">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <div class="product-info">
+        <h1 id="product-title">Loading...</h1>
+        
+        <div id="product-rating" style="color: #fbbf24; margin-bottom: 1rem;">
+          ★★★★★ <span style="color: #64748b;">(128 reviews)</span>
+        </div>
+
+        <div class="product-price-section">
+          <div class="product-price-large" id="product-price">$0.00</div>
+          <div style="color: #64748b; margin-top: 0.5rem;">
+            <span id="stock-status"></span> • SKU: <span id="product-sku"></span>
+          </div>
+        </div>
+
+        <div id="product-description">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div class="quantity-selector">
+          <label style="font-weight: 600;">Quantity:</label>
+          <div class="quantity-input">
+            <button onclick="decrementQuantity()">−</button>
+            <input type="number" id="quantity" value="1" min="1" max="999">
+            <button onclick="incrementQuantity()">+</button>
+          </div>
+        </div>
+
+        <div class="product-actions">
+          <button class="btn btn-primary" style="flex: 1; padding: 1rem 2rem; font-size: 1.125rem;" onclick="addToCartFromDetail()">
+            🛒 Add to Cart
+          </button>
+          <button class="btn btn-secondary" style="padding: 1rem 1.5rem;">
+            ❤️
+          </button>
+        </div>
+
+        <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; margin-top: 1.5rem; font-size: 0.875rem;">
+          <strong>🚚 Free shipping</strong> on orders over $100<br>
+          <strong>⏱️ Fast delivery</strong> - Ships within 24 hours<br>
+          <strong>✅ Warranty</strong> - 1 year manufacturer warranty
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="switchTab('description')">Description</button>
+        <button class="tab-button" onclick="switchTab('specifications')">Specifications</button>
+        <button class="tab-button" onclick="switchTab('reviews')">Reviews</button>
+      </div>
+
+      <div id="tab-description" class="tab-content active">
+        <div style="background: white; padding: 2rem; border-radius: 12px;">
+          <h2 style="margin-bottom: 1rem;">Product Description</h2>
+          <div id="full-description">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-specifications" class="tab-content">
+        <div style="background: white; padding: 2rem; border-radius: 12px;">
+          <h2 style="margin-bottom: 1rem;">Technical Specifications</h2>
+          <table class="spec-table" id="specifications-table">
+            <!-- Populated by JavaScript -->
+          </table>
+        </div>
+      </div>
+
+      <div id="tab-reviews" class="tab-content">
+        <div style="background: white; padding: 2rem; border-radius: 12px;">
+          <h2 style="margin-bottom: 1rem;">Customer Reviews</h2>
+          <div id="reviews-container">
+            <!-- Sample reviews -->
+            <div style="border-bottom: 1px solid var(--border-light); padding: 1.5rem 0;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <strong>John D.</strong>
+                <span style="color: #fbbf24;">★★★★★</span>
+              </div>
+              <p style="color: var(--text-secondary);">Excellent product, works exactly as described. Fast shipping and great customer service.</p>
+              <small style="color: var(--text-muted);">Verified Purchase • 2 weeks ago</small>
+            </div>
+            <div style="border-bottom: 1px solid var(--border-light); padding: 1.5rem 0;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <strong>Sarah M.</strong>
+                <span style="color: #fbbf24;">★★★★★</span>
+              </div>
+              <p style="color: var(--text-secondary);">High quality and good value for money. Would definitely buy again.</p>
+              <small style="color: var(--text-muted);">Verified Purchase • 1 month ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <section style="margin-top: 3rem;">
+      <h2 style="margin-bottom: 1.5rem;">Related Products</h2>
+      <div class="product-grid" id="related-products">
+        <!-- Populated by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About GSM Technology</h3>
+          <p>Leading provider of professional mobile electronics since 2010.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="categories/boxes-and-dongles.html">Boxes & Dongles</a></li>
+            <li><a href="categories/cables-and-adapters.html">Cables & Adapters</a></li>
+            <li><a href="products.html">All Products</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="info/payment.html">Payment Methods</a></li>
+            <li><a href="info/shipping.html">Shipping</a></li>
+            <li><a href="support.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="info/privacy.html">Privacy Policy</a></li>
+            <li><a href="info/terms.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 GSM Technology. Educational purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/product-detail.js"></script>
 </body>
 </html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - GSM Technology</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    body {
+      background: #f8fafc;
+    }
+    
+    .admin-layout {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      min-height: 100vh;
+    }
+    
+    .admin-sidebar {
+      background: #0f172a;
+      color: white;
+      padding: 2rem 0;
+    }
+    
+    .admin-logo {
+      padding: 0 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .admin-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .admin-nav-item {
+      margin-bottom: 0.25rem;
+    }
+    
+    .admin-nav-link {
+      display: block;
+      padding: 0.875rem 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: all 0.2s;
+      border-left: 3px solid transparent;
+    }
+    
+    .admin-nav-link:hover,
+    .admin-nav-link.active {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-left-color: #ff6a00;
+    }
+    
+    .admin-content {
+      padding: 2rem;
+    }
+    
+    .admin-header {
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .stat-card-title {
+      color: #64748b;
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-card-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    
+    .stat-card-change {
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+    
+    .stat-card-change.positive {
+      color: #10b981;
+    }
+    
+    .stat-card-change.negative {
+      color: #ef4444;
+    }
+    
+    .content-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    
+    .content-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .content-card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #475569;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .table-container {
+      overflow-x: auto;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th {
+      background: #f8fafc;
+      padding: 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      color: #475569;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    
+    td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .btn-icon {
+      padding: 0.5rem;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <h2 style="margin: 0; font-size: 1.5rem;">GSM Admin</h2>
+        <p style="margin: 0.25rem 0 0; font-size: 0.875rem; opacity: 0.7;">Management Portal</p>
+      </div>
+      
+      <ul class="admin-nav">
+        <li class="admin-nav-item">
+          <a href="#dashboard" class="admin-nav-link active" onclick="showSection('dashboard')">📊 Dashboard</a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#products" class="admin-nav-link" onclick="showSection('products')">📦 Products</a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#add-product" class="admin-nav-link" onclick="showSection('add-product')">➕ Add Product</a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#categories" class="admin-nav-link" onclick="showSection('categories')">🏷️ Categories</a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#orders" class="admin-nav-link" onclick="showSection('orders')">🛒 Orders</a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#customers" class="admin-nav-link" onclick="showSection('customers')">👥 Customers</a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#images" class="admin-nav-link" onclick="showSection('images')">🖼️ Media Library</a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="#settings" class="admin-nav-link" onclick="showSection('settings')">⚙️ Settings</a>
+        </li>
+      </ul>
+      
+      <div style="padding: 1.5rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <a href="../index.html" class="btn btn-secondary" style="width: 100%; text-align: center;">← Back to Site</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-content">
+      <!-- Dashboard Section -->
+      <div id="section-dashboard" class="admin-section">
+        <div class="admin-header">
+          <div>
+            <h1 style="margin: 0; font-size: 2rem;">Dashboard</h1>
+            <p style="margin: 0.25rem 0 0; color: #64748b;">Welcome back, Admin!</p>
+          </div>
+          <div>
+            <span style="color: #64748b;">Last updated: Just now</span>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-title">Total Revenue</div>
+            <div class="stat-card-value">$45,231</div>
+            <div class="stat-card-change positive">↑ 12.5% from last month</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-card-title">Total Orders</div>
+            <div class="stat-card-value">1,234</div>
+            <div class="stat-card-change positive">↑ 8.2% from last month</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-card-title">Total Products</div>
+            <div class="stat-card-value" id="product-count">0</div>
+            <div class="stat-card-change">Updated inventory</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-card-title">Total Customers</div>
+            <div class="stat-card-value">842</div>
+            <div class="stat-card-change positive">↑ 5.1% from last month</div>
+          </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="content-card">
+          <div class="content-card-header">
+            <h2 class="content-card-title">Recent Orders</h2>
+            <button class="btn btn-primary btn-small">View All</button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#1001</td>
+                  <td>John Smith</td>
+                  <td>2025-10-01</td>
+                  <td>$299.99</td>
+                  <td><span style="background: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem;">Completed</span></td>
+                  <td><button class="btn btn-small">View</button></td>
+                </tr>
+                <tr>
+                  <td>#1002</td>
+                  <td>Sarah Johnson</td>
+                  <td>2025-10-01</td>
+                  <td>$129.50</td>
+                  <td><span style="background: #fbbf24; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem;">Processing</span></td>
+                  <td><button class="btn btn-small">View</button></td>
+                </tr>
+                <tr>
+                  <td>#1003</td>
+                  <td>Mike Davis</td>
+                  <td>2025-09-30</td>
+                  <td>$499.00</td>
+                  <td><span style="background: #0a64ff; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem;">Shipped</span></td>
+                  <td><button class="btn btn-small">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Product Section -->
+      <div id="section-add-product" class="admin-section" style="display: none;">
+        <div class="admin-header">
+          <h1 style="margin: 0; font-size: 2rem;">Add New Product</h1>
+        </div>
+
+        <div class="content-card">
+          <form id="add-product-form" onsubmit="handleAddProduct(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Product Name *</label>
+                <input type="text" name="name" required placeholder="Enter product name">
+              </div>
+              
+              <div class="form-group">
+                <label>Price (USD) *</label>
+                <input type="number" name="price" step="0.01" required placeholder="0.00">
+              </div>
+              
+              <div class="form-group">
+                <label>Stock Quantity *</label>
+                <input type="number" name="stock" required placeholder="0">
+              </div>
+              
+              <div class="form-group">
+                <label>Category</label>
+                <select name="category">
+                  <option value="boxes">Boxes & Dongles</option>
+                  <option value="cables">Cables & Adapters</option>
+                  <option value="parts">Parts & Accessories</option>
+                  <option value="equipment">Repair Equipment</option>
+                  <option value="credits">Credits & Activations</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label>Brand</label>
+                <input type="text" name="brand" placeholder="Enter brand name">
+              </div>
+              
+              <div class="form-group">
+                <label>Image URL</label>
+                <input type="url" name="image" placeholder="https://example.com/image.jpg">
+              </div>
+            </div>
+            
+            <div class="form-group" style="margin-top: 1rem;">
+              <label>Description</label>
+              <textarea name="desc" placeholder="Enter product description..."></textarea>
+            </div>
+            
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+              <button type="submit" class="btn btn-primary">Add Product</button>
+              <button type="reset" class="btn btn-secondary">Clear Form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Products Section -->
+      <div id="section-products" class="admin-section" style="display: none;">
+        <div class="admin-header">
+          <h1 style="margin: 0; font-size: 2rem;">Manage Products</h1>
+          <button class="btn btn-primary" onclick="showSection('add-product')">+ Add New Product</button>
+        </div>
+
+        <div class="content-card">
+          <div class="table-container">
+            <table id="products-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Category</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="products-tbody">
+                <!-- Populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Section -->
+      <div id="section-categories" class="admin-section" style="display: none;">
+        <div class="admin-header">
+          <h1 style="margin: 0; font-size: 2rem;">Manage Categories</h1>
+        </div>
+
+        <div class="content-card">
+          <p>Category management interface - Add, edit, or remove product categories.</p>
+          <p style="color: #64748b;">This is a demonstration stub. In a full implementation, you would be able to create and manage product categories here.</p>
+        </div>
+      </div>
+
+      <!-- Orders Section -->
+      <div id="section-orders" class="admin-section" style="display: none;">
+        <div class="admin-header">
+          <h1 style="margin: 0; font-size: 2rem;">Manage Orders</h1>
+        </div>
+
+        <div class="content-card">
+          <p>Order management interface - View and process customer orders.</p>
+          <p style="color: #64748b;">This is a demonstration stub. In a full implementation, you would see all orders, update status, and manage fulfillment.</p>
+        </div>
+      </div>
+
+      <!-- Images/Media Section -->
+      <div id="section-images" class="admin-section" style="display: none;">
+        <div class="admin-header">
+          <h1 style="margin: 0; font-size: 2rem;">Media Library</h1>
+          <button class="btn btn-primary" onclick="document.getElementById('file-upload').click()">+ Upload Images</button>
+          <input type="file" id="file-upload" accept="image/*" multiple style="display: none;" onchange="handleImageUpload(event)">
+        </div>
+
+        <div class="content-card">
+          <div id="media-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem;">
+            <!-- Sample placeholder images -->
+            <div style="aspect-ratio: 1; background: #f1f5f9; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #94a3b8;">
+              📷 Image
+            </div>
+            <div style="aspect-ratio: 1; background: #f1f5f9; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #94a3b8;">
+              📷 Image
+            </div>
+            <div style="aspect-ratio: 1; background: #f1f5f9; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #94a3b8;">
+              📷 Image
+            </div>
+          </div>
+          <p style="color: #64748b; margin-top: 1.5rem;">Upload and manage product images. Supported formats: JPG, PNG, WEBP</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Load products data
+    let products = [];
+    
+    async function loadProducts() {
+      try {
+        const response = await fetch('../products.json');
+        products = await response.json();
+        products = products.filter(p => p.name && p.price);
+        document.getElementById('product-count').textContent = products.length;
+        renderProductsTable();
+      } catch (error) {
+        console.error('Failed to load products:', error);
+      }
+    }
+    
+    function renderProductsTable() {
+      const tbody = document.getElementById('products-tbody');
+      if (!tbody) return;
+      
+      tbody.innerHTML = products.map(p => `
+        <tr>
+          <td>${p.id}</td>
+          <td><img src="${p.image || '../assets/images/placeholder.svg'}" alt="${p.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;"></td>
+          <td>${p.name}</td>
+          <td>$${p.price.toFixed(2)}</td>
+          <td>${p.stock}</td>
+          <td>${p.category || '-'}</td>
+          <td class="action-buttons">
+            <button class="btn btn-small btn-icon">✏️</button>
+            <button class="btn btn-small btn-icon" style="background: #ef4444;">🗑️</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+    
+    function showSection(sectionName) {
+      // Hide all sections
+      document.querySelectorAll('.admin-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      // Show selected section
+      document.getElementById(`section-${sectionName}`).style.display = 'block';
+      
+      // Update active nav link
+      document.querySelectorAll('.admin-nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+    
+    function handleAddProduct(event) {
+      event.preventDefault();
+      
+      const formData = new FormData(event.target);
+      const product = {
+        id: Date.now(),
+        name: formData.get('name'),
+        price: parseFloat(formData.get('price')),
+        stock: parseInt(formData.get('stock')),
+        category: formData.get('category'),
+        brand: formData.get('brand'),
+        image: formData.get('image') || '../assets/images/placeholder.svg',
+        desc: formData.get('desc')
+      };
+      
+      products.push(product);
+      
+      // In a real app, this would save to a database
+      alert('Product added successfully! (Demo mode - not saved to database)');
+      
+      // Update product count
+      document.getElementById('product-count').textContent = products.length;
+      
+      // Reset form
+      event.target.reset();
+      
+      // Show products section
+      showSection('products');
+      renderProductsTable();
+    }
+    
+    function handleImageUpload(event) {
+      const files = event.target.files;
+      alert(`${files.length} image(s) selected. In a real implementation, these would be uploaded to your server.`);
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', loadProducts);
+  </script>
+</body>
+</html>

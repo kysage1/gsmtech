@@ -1,76 +1,313 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gsm Technology - Home</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSM Technology - Professional Electronics & Unlocking Services</title>
+  <meta name="description" content="Leading provider of mobile phone unlocking tools, repair equipment, cables, adapters, and professional electronics accessories.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-row">
-  <div class="brand">Gsm Technology</div>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <div class="actions">
-        <input id="search" placeholder="Search products..." />
-        <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-left">
-          <h1>Wholesale electronics, accessories and unlocking services</h1>
-          <p>Fast shipping, competitive pricing, global support — demo clone for educational purposes.</p>
-          <a href="products.html" class="btn">Shop Products</a>
-        </div>
-        <div class="hero-right">
-          <img src="https://gsmserver.com/image/logo/logo-gsm.svg" alt="Gsm Technology" style="width:100%;max-width:320px" onerror="this.style.opacity=0.15" />
-        </div>
-      </div>
-    </section>
-
-    <section class="featured container">
-      <h2>Featured Products</h2>
-      <div id="products-grid" class="grid">
-        <!-- products injected by app.js -->
-      </div>
-    </section>
-
-    <section class="mini-features container">
-      <div class="feature">Fast Global Shipping</div>
-      <div class="feature">Secure Payments</div>
-      <div class="feature">24/7 Support</div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
+  <!-- Top Bar -->
+  <div class="top-bar">
     <div class="container">
-  <div>© 2025 Gsm Technology — For educational/demo use only.</div>
-      <div class="links">
-        <a href="#">Terms</a> · <a href="#">Privacy</a>
-      </div>
-    </div>
-  </footer>
-
-  <div id="chat-widget" class="chat-closed">
-    <div class="chat-header">Chat with us</div>
-    <div class="chat-body">
-      <div id="chat-messages"></div>
-      <div class="chat-input-row">
-        <input id="chat-input" placeholder="Ask about products or pricing..." />
-        <button id="chat-send">Send</button>
+      <div class="top-bar-content">
+        <div class="top-bar-left">
+          <span>📧 support@gsmtechnology.com</span>
+          <span>📞 +1 (800) 123-4567</span>
+        </div>
+        <div class="top-bar-right">
+          <div class="language-selector">
+            <select id="language-select">
+              <option value="en">🇬🇧 English</option>
+              <option value="es">🇪🇸 Español</option>
+              <option value="fr">🇫🇷 Français</option>
+              <option value="de">🇩🇪 Deutsch</option>
+              <option value="zh">🇨🇳 中文</option>
+            </select>
+          </div>
+          <div class="currency-selector">
+            <select id="currency-select">
+              <option value="USD">$ USD</option>
+              <option value="EUR">€ EUR</option>
+              <option value="GBP">£ GBP</option>
+              <option value="JPY">¥ JPY</option>
+              <option value="CNY">¥ CNY</option>
+            </select>
+          </div>
+          <a href="info/checkout.html">Track Order</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <script src="app.js" defer></script>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <a href="index.html" class="logo">
+          <img src="assets/logos/logo.svg" alt="GSM Technology">
+        </a>
+        
+        <div class="search-bar">
+          <form class="search-form" onsubmit="return false;">
+            <input 
+              type="text" 
+              class="search-input" 
+              id="main-search" 
+              placeholder="Search for products, brands, or categories..."
+              autocomplete="off"
+            >
+            <button type="submit" class="search-btn">Search</button>
+          </form>
+        </div>
+
+        <div class="header-actions">
+          <button class="header-action-btn" onclick="location.href='support.html'">
+            <span>👤</span>
+            <span>Account</span>
+          </button>
+          <button class="cart-btn" onclick="location.href='info/checkout.html'">
+            🛒 Cart <span class="cart-count" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="categories/boxes-and-dongles.html" class="nav-link">Boxes & Dongles</a></li>
+          <li class="nav-item"><a href="categories/cables-and-adapters.html" class="nav-link">Cables & Adapters</a></li>
+          <li class="nav-item"><a href="categories/spares.html" class="nav-link">Parts & Accessories</a></li>
+          <li class="nav-item"><a href="categories/equipment.html" class="nav-link">Repair Equipment</a></li>
+          <li class="nav-item"><a href="categories/credits-and-activations.html" class="nav-link">Credits & Activations</a></li>
+          <li class="nav-item"><a href="blog/index.html" class="nav-link">Blog & News</a></li>
+          <li class="nav-item"><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 data-i18n="hero.title">Professional Mobile Electronics & Unlocking Solutions</h1>
+          <p data-i18n="hero.subtitle">Industry-leading tools, equipment, and accessories for mobile repair professionals worldwide. Fast shipping, competitive pricing, expert support.</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="products.html" class="btn btn-primary" data-i18n="hero.cta1">Shop All Products</a>
+            <a href="blog/index.html" class="btn btn-outline" data-i18n="hero.cta2">Latest News</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/images/banners/hero-banner.svg" alt="Professional Electronics">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Featured Promotions -->
+    <section class="section" style="background: white; padding: 2rem 0;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="featured.title">Featured Promotions</h2>
+          <p class="section-subtitle" data-i18n="featured.subtitle">Special offers and deals on top products</p>
+        </div>
+        <div class="product-grid" id="featured-products">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="categories.title">Shop by Category</h2>
+          <p class="section-subtitle" data-i18n="categories.subtitle">Browse our extensive range of professional tools and accessories</p>
+        </div>
+        <div class="category-grid">
+          <a href="categories/boxes-and-dongles.html" class="category-card">
+            <img src="assets/images/placeholder.svg" alt="Boxes & Dongles" class="category-card-image">
+            <div class="category-card-content">
+              <h3 class="category-card-title" data-i18n="categories.boxes">Boxes & Dongles</h3>
+              <p class="category-card-desc" data-i18n="categories.boxes_desc">Professional unlocking and flashing tools</p>
+            </div>
+          </a>
+          <a href="categories/cables-and-adapters.html" class="category-card">
+            <img src="assets/images/placeholder.svg" alt="Cables & Adapters" class="category-card-image">
+            <div class="category-card-content">
+              <h3 class="category-card-title" data-i18n="categories.cables">Cables & Adapters</h3>
+              <p class="category-card-desc" data-i18n="categories.cables_desc">High-quality connection solutions</p>
+            </div>
+          </a>
+          <a href="categories/spares.html" class="category-card">
+            <img src="assets/images/placeholder.svg" alt="Parts & Accessories" class="category-card-image">
+            <div class="category-card-content">
+              <h3 class="category-card-title" data-i18n="categories.parts">Parts & Accessories</h3>
+              <p class="category-card-desc" data-i18n="categories.parts_desc">Replacement parts and components</p>
+            </div>
+          </a>
+          <a href="categories/equipment.html" class="category-card">
+            <img src="assets/images/placeholder.svg" alt="Repair Equipment" class="category-card-image">
+            <div class="category-card-content">
+              <h3 class="category-card-title" data-i18n="categories.equipment">Repair Equipment</h3>
+              <p class="category-card-desc" data-i18n="categories.equipment_desc">Professional repair station tools</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News/Blog -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="news.title">Latest News & Updates</h2>
+          <p class="section-subtitle" data-i18n="news.subtitle">Stay informed about industry trends and product releases</p>
+        </div>
+        <div class="blog-grid" id="latest-news">
+          <!-- Populated by JavaScript -->
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="blog/index.html" class="btn btn-primary" data-i18n="news.view_all">View All Articles</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="testimonials.title">What Our Customers Say</h2>
+          <p class="section-subtitle" data-i18n="testimonials.subtitle">Trusted by thousands of professionals worldwide</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-text">"Excellent service and fast delivery. The unlocking tools work perfectly and the support team is very responsive. Highly recommended for professional use."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">John Smith</div>
+                <div class="testimonial-role">Mobile Repair Shop Owner</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-text">"Great prices on bulk orders and the quality is always consistent. Been ordering from GSM Technology for over 3 years now."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">Maria Garcia</div>
+                <div class="testimonial-role">Electronics Distributor</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-text">"The technical support is outstanding. They helped me set up my new equipment and answered all my questions promptly."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">Ahmed Hassan</div>
+                <div class="testimonial-role">Repair Technician</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="section" style="background: white; padding: 2rem 0;">
+      <div class="container">
+        <div class="category-grid" style="text-align: center;">
+          <div>
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🚚</div>
+            <h3 data-i18n="features.shipping">Fast Global Shipping</h3>
+            <p data-i18n="features.shipping_desc">Express delivery available</p>
+          </div>
+          <div>
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔒</div>
+            <h3 data-i18n="features.secure">Secure Payments</h3>
+            <p data-i18n="features.secure_desc">SSL encrypted transactions</p>
+          </div>
+          <div>
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">💬</div>
+            <h3 data-i18n="features.support">24/7 Support</h3>
+            <p data-i18n="features.support_desc">Expert technical assistance</p>
+          </div>
+          <div>
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
+            <h3 data-i18n="features.warranty">Warranty Protection</h3>
+            <p data-i18n="features.warranty_desc">Quality guarantee on all items</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 data-i18n="footer.about">About GSM Technology</h3>
+          <p data-i18n="footer.about_text">Leading provider of professional mobile electronics, unlocking solutions, and repair equipment since 2010. Trusted by thousands of professionals worldwide.</p>
+          <div style="margin-top: 1rem;">
+            <img src="assets/logos/logo.svg" alt="GSM Technology" style="height: 50px;">
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3 data-i18n="footer.shop">Shop</h3>
+          <ul>
+            <li><a href="categories/boxes-and-dongles.html" data-i18n="categories.boxes">Boxes & Dongles</a></li>
+            <li><a href="categories/cables-and-adapters.html" data-i18n="categories.cables">Cables & Adapters</a></li>
+            <li><a href="categories/spares.html" data-i18n="categories.parts">Parts & Accessories</a></li>
+            <li><a href="categories/equipment.html" data-i18n="categories.equipment">Repair Equipment</a></li>
+            <li><a href="products.html" data-i18n="footer.all_products">All Products</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 data-i18n="footer.info">Customer Service</h3>
+          <ul>
+            <li><a href="info/how-to-shop.html" data-i18n="footer.how_to_shop">How to Shop</a></li>
+            <li><a href="info/payment.html" data-i18n="footer.payment">Payment Methods</a></li>
+            <li><a href="info/shipping.html" data-i18n="footer.shipping">Shipping Information</a></li>
+            <li><a href="info/warranty.html" data-i18n="footer.warranty">Warranty Policy</a></li>
+            <li><a href="info/returns.html" data-i18n="footer.returns">Returns & Refunds</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 data-i18n="footer.legal">Legal & Contact</h3>
+          <ul>
+            <li><a href="info/privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+            <li><a href="info/terms.html" data-i18n="footer.terms">Terms & Conditions</a></li>
+            <li><a href="support.html" data-i18n="footer.contact">Contact Us</a></li>
+            <li><a href="blog/index.html" data-i18n="footer.blog">Blog & News</a></li>
+            <li><a href="info/about.html" data-i18n="footer.about_us">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 GSM Technology. All rights reserved. | <span data-i18n="footer.disclaimer">For educational and demonstration purposes only.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

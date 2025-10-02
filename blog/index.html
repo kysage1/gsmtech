@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & News - GSM Technology</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-content">
+        <div class="top-bar-left">
+          <span>📧 support@gsmtechnology.com</span>
+          <span>📞 +1 (800) 123-4567</span>
+        </div>
+        <div class="top-bar-right">
+          <div class="language-selector">
+            <select id="language-select">
+              <option value="en">🇬🇧 English</option>
+              <option value="es">🇪🇸 Español</option>
+              <option value="fr">🇫🇷 Français</option>
+            </select>
+          </div>
+          <div class="currency-selector">
+            <select id="currency-select">
+              <option value="USD">$ USD</option>
+              <option value="EUR">€ EUR</option>
+              <option value="GBP">£ GBP</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <a href="../index.html" class="logo">
+          <img src="../assets/logos/logo.svg" alt="GSM Technology">
+        </a>
+        
+        <div class="search-bar">
+          <form class="search-form" onsubmit="return false;">
+            <input type="text" class="search-input" id="main-search" placeholder="Search articles...">
+            <button type="submit" class="search-btn">Search</button>
+          </form>
+        </div>
+
+        <div class="header-actions">
+          <button class="header-action-btn" onclick="location.href='../support.html'">
+            <span>👤</span>
+            <span>Account</span>
+          </button>
+          <button class="cart-btn" onclick="location.href='../info/checkout.html'">
+            🛒 Cart <span class="cart-count" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="../categories/boxes-and-dongles.html" class="nav-link">Boxes & Dongles</a></li>
+          <li class="nav-item"><a href="../categories/cables-and-adapters.html" class="nav-link">Cables & Adapters</a></li>
+          <li class="nav-item"><a href="../categories/spares.html" class="nav-link">Parts & Accessories</a></li>
+          <li class="nav-item"><a href="../categories/equipment.html" class="nav-link">Repair Equipment</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active">Blog & News</a></li>
+          <li class="nav-item"><a href="../support.html" class="nav-link">Support</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" style="margin-top: 2rem; margin-bottom: 2rem;">
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <h1 style="font-size: 3rem; margin-bottom: 1rem;">Blog & News</h1>
+      <p style="font-size: 1.25rem; color: #64748b;">Stay updated with the latest industry news, product releases, and repair guides</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+      <button class="btn btn-small btn-primary" onclick="filterBlog('all')">All Posts</button>
+      <button class="btn btn-small btn-secondary" onclick="filterBlog('product-updates')">Product Updates</button>
+      <button class="btn btn-small btn-secondary" onclick="filterBlog('guides')">Guides</button>
+      <button class="btn btn-small btn-secondary" onclick="filterBlog('industry-news')">Industry News</button>
+      <button class="btn btn-small btn-secondary" onclick="filterBlog('tutorials')">Tutorials</button>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-grid" id="blog-grid">
+      <!-- Article 1 -->
+      <article class="blog-card">
+        <img src="../assets/images/placeholder.svg" alt="Article" class="blog-card-image">
+        <div class="blog-card-content">
+          <div class="blog-card-date">September 28, 2025</div>
+          <h3 class="blog-card-title">New iPhone 15 Unlocking Solutions Available</h3>
+          <p class="blog-card-excerpt">We are excited to announce support for the latest iPhone 15 series unlocking tools. Learn more about compatibility, features, and how to get started with our comprehensive solutions...</p>
+          <a href="article.html?id=1" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="blog-card">
+        <img src="../assets/images/placeholder.svg" alt="Article" class="blog-card-image">
+        <div class="blog-card-content">
+          <div class="blog-card-date">September 25, 2025</div>
+          <h3 class="blog-card-title">Complete Guide: Choosing the Right Repair Equipment</h3>
+          <p class="blog-card-excerpt">A comprehensive guide to selecting professional repair equipment for your workshop. Compare features, prices, and capabilities to make the best investment for your business...</p>
+          <a href="article.html?id=2" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="blog-card">
+        <img src="../assets/images/placeholder.svg" alt="Article" class="blog-card-image">
+        <div class="blog-card-content">
+          <div class="blog-card-date">September 20, 2025</div>
+          <h3 class="blog-card-title">Mobile Repair Market Trends 2025</h3>
+          <p class="blog-card-excerpt">Analysis of current market trends in mobile device repair and unlocking services. What professionals need to know to stay competitive in an evolving industry...</p>
+          <a href="article.html?id=3" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="blog-card">
+        <img src="../assets/images/placeholder.svg" alt="Article" class="blog-card-image">
+        <div class="blog-card-content">
+          <div class="blog-card-date">September 15, 2025</div>
+          <h3 class="blog-card-title">Tutorial: Advanced Cable Pinout Identification</h3>
+          <p class="blog-card-excerpt">Learn how to identify and work with various mobile phone cable pinouts. Essential knowledge for repair technicians working with different device models...</p>
+          <a href="article.html?id=4" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Article 5 -->
+      <article class="blog-card">
+        <img src="../assets/images/placeholder.svg" alt="Article" class="blog-card-image">
+        <div class="blog-card-content">
+          <div class="blog-card-date">September 10, 2025</div>
+          <h3 class="blog-card-title">New Arrivals: Professional Soldering Stations</h3>
+          <p class="blog-card-excerpt">Check out our latest addition of professional-grade soldering stations. Perfect for precision repair work with temperature control and multiple tip options...</p>
+          <a href="article.html?id=5" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <!-- Article 6 -->
+      <article class="blog-card">
+        <img src="../assets/images/placeholder.svg" alt="Article" class="blog-card-image">
+        <div class="blog-card-content">
+          <div class="blog-card-date">September 5, 2025</div>
+          <h3 class="blog-card-title">Best Practices for Mobile Device Unlocking</h3>
+          <p class="blog-card-excerpt">Essential best practices and safety guidelines for professional mobile device unlocking. Protect your business and provide better service to your customers...</p>
+          <a href="article.html?id=6" class="read-more">Read More →</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About GSM Technology</h3>
+          <p>Leading provider of professional mobile electronics since 2010.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="../products.html">All Products</a></li>
+            <li><a href="../categories/boxes-and-dongles.html">Boxes & Dongles</a></li>
+            <li><a href="../categories/equipment.html">Equipment</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="index.html">Blog & News</a></li>
+            <li><a href="../support.html">Support</a></li>
+            <li><a href="../info/about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="../info/privacy.html">Privacy Policy</a></li>
+            <li><a href="../info/terms.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 GSM Technology. Educational purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterBlog(category) {
+      // Update button styles
+      document.querySelectorAll('.btn-small').forEach(btn => {
+        btn.classList.remove('btn-primary');
+        btn.classList.add('btn-secondary');
+      });
+      event.target.classList.remove('btn-secondary');
+      event.target.classList.add('btn-primary');
+      
+      // In a real implementation, this would filter the articles
+      console.log('Filtering by:', category);
+    }
+    
+    // Update cart count
+    const cart = JSON.parse(localStorage.getItem('cart') || '{}');
+    const total = Object.values(cart).reduce((s, n) => s + Number(n), 0);
+    document.getElementById('cart-count').textContent = total;
+  </script>
+</body>
+</html>
