@@ -1,76 +1,3064 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gsm Technology - Home</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINGZ ENT TECHZ | Tool Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* All existing CSS remains the same */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --accent2: #9b59b6;
+            --dark: #121a24;
+            --darker: #0d121b;
+            --light: #ecf0f1;
+            --success: #2ecc71;
+            --card-bg: #1a252f;
+            --text-light: #f0f0f0;
+            --text-gray: #b0b0b0;
+            --border: #2a3a4d;
+        }
+        
+        /* NEW SCROLLING BANNER STYLES */
+       .scrolling-banner {
+    background: linear-gradient(90deg, #e74c3c, #3498db, #9b59b6);
+    color: white;
+    padding: 10px 0;
+    overflow: hidden;
+    position: sticky; /* CHANGED FROM relative TO sticky */
+    top: 0; /* ADDED THIS LINE */
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--border);
+    z-index: 101; /* ADDED THIS LINE - higher than header z-index */
+        }
+        
+        .scrolling-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll 35s linear infinite; /* Medium speed */
+        }
+        
+        .scrolling-content span {
+            margin: 0 20px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .scrolling-content i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .whatsapp-logo {
+            color: #25D366;
+        }
+        
+        .phone-logo {
+            color: #2ecc71;
+        }
+        
+        .email-logo {
+            color: #e74c3c;
+        }
+        
+        .welcome-text {
+            color: #f1c40f;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        /* Pause animation on hover */
+        .scrolling-banner:hover .scrolling-content {
+            animation-play-state: paused;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+        header {
+            background: rgba(18, 26, 36, 0.95);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            background: rgba(0,0,0,0.2);
+            padding: 5px 10px;
+            border-radius: 8px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+        .logo span {
+            color: var(--secondary);
+        }
+        .logo-name {
+            display: flex;
+            align-items: center;
+        }
+        .logo-name span:first-child {
+            margin-right: 5px;
+        }
+        .logo-name span:nth-child(2) {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-top: 3px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .nav-tab {
+            color: var(--text-light);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+            white-space: nowrap;
+            font-weight: 600; /* Increased font weight */
+            font-size: 1.05rem; /* Slightly larger font */
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-tab:hover {
+            color: var(--accent);
+        }
+        .nav-tab.active {
+            color: var(--secondary);
+        }
+        .nav-tab i {
+            font-size: 1.1rem;
+        }
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            position: relative;
+        }
+        .user-icon {
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            display: none;
+            z-index: 1000;
+        }
+        .user-dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .user-dropdown a:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--accent);
+        }
+        .header-actions:hover .user-dropdown {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(18, 26, 36, 0.85), rgba(18, 26, 36, 0.85)), 
+                        url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 3rem;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-gray);
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--secondary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        .support-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(52, 152, 219, 0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(52, 152, 219, 0.5);
+        }
+        .support-number:hover {
+            background: rgba(52, 152, 219, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+        
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        .tool-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+            transform: translateY(0);
+            position: relative;
+        }
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+        .tool-header {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+        .tool-server {
+            background: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .tool-image-container {
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.1);
+            padding: 20px;
+            overflow: hidden;
+        }
+        .tool-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            transition: transform 0.5s ease;
+        }
+        .tool-card:hover .tool-image-container img {
+            transform: scale(1.05);
+        }
+        .tool-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .tool-name {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .delivery-badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .price-options {
+            margin: 1rem 0;
+            flex-grow: 1;
+        }
+        .price-option {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--border);
+        }
+        .btn {
+            display: block;
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+        .btn-cyber {
+            background: var(--accent2);
+        }
+        .btn-cyber:hover {
+            background: #8e44ad;
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        .btn-outline:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+        /* Payment Methods */
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .payment-method {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .payment-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .payment-method i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+        .payment-number {
+            font-weight: bold;
+            color: var(--text-light);
+            word-break: break-all;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        footer {
+            background: rgba(0,0,0,0.3);
+            color: var(--text-gray);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        /* New Styles */
+        .rent-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+        .kes-price {
+            font-size: 0.9rem;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-top: 3px;
+        }
+        .rental-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--text-light);
+            margin: 2rem 0 1rem;
+            position: relative;
+            font-weight: 700;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 0.8rem auto;
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .animated {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .slide-in {
+            animation: slideInRight 0.8s ease forwards;
+        }
+        
+        /* Service Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+            transform: translateY(0);
+            position: relative;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+        .service-header {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+        .service-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .service-price {
+            background: var(--accent2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .service-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-description {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        .service-badge {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .service-price-kes {
+            font-size: 0.9rem;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-top: 5px;
+            text-align: right;
+        }
+        
+        /* Legal Section */
+        .legal-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            border: 1px solid var(--border);
+        }
+        .legal-section h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .legal-section p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+        .legal-section ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .legal-section li {
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+        
+        /* Tab Content Management */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        #home-content {
+            display: block;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .scrolling-banner {
+                font-size: 0.8rem;
+            }
+            
+            .scrolling-content span {
+                margin: 0 10px;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo-container {
+                margin-bottom: 1rem;
+            }
+            nav {
+                width: 100%;
+                justify-content: space-between;
+                display: none;
+            }
+            .nav-tab {
+                margin-left: 0;
+                margin-right: 1rem;
+                font-size: 0.9rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            nav.active {
+                display: flex;
+            }
+            .nav-tab {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem;
+                background: rgba(255,255,255,0.1);
+                border-radius: 4px;
+            }
+            .header-actions {
+                position: static;
+                margin-top: 1rem;
+            }
+            .user-dropdown {
+                left: 0;
+                right: auto;
+            }
+        }
+        
+        /* Tool Features */
+        .tool-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .tool-feature i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+            width: 20px;
+        }
+        
+        /* Login/Signup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 450px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .close-modal:hover {
+            color: var(--secondary);
+        }
+        .modal-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            position: relative;
+        }
+        .modal-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 0.8rem auto;
+            border-radius: 2px;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: rgba(0,0,0,0.2);
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        .form-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            color: var(--text-gray);
+        }
+        .form-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Payment Modal */
+        .payment-modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .payment-option:hover {
+            border-color: var(--accent);
+            background: rgba(52, 152, 219, 0.1);
+        }
+        .payment-option input {
+            margin-right: 1rem;
+        }
+        .payment-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--accent);
+        }
+        .payment-label {
+            flex-grow: 1;
+        }
+        .payment-name {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .payment-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        
+        /* New styles for enhanced rental modal */
+        .rental-instructions {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+        .rental-instructions ol {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+        .rental-instructions li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-button:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Form validation styles */
+        .form-error {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+        .form-control.error {
+            border-color: var(--secondary);
+        }
+        
+        /* NEW STYLES FOR ADDED FEATURES */
+        
+        /* Sub-tab navigation */
+        .sub-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .sub-tab {
+            background: var(--card-bg);
+            color: var(--text-light);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+        }
+        .sub-tab:hover, .sub-tab.active {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        /* Software grid */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .software-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+        }
+        .software-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+        .software-header {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+        .software-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .software-price {
+            background: var(--accent2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .software-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .software-description {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        /* Digital typing services */
+        .upload-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+        }
+        .upload-info {
+            margin-bottom: 1.5rem;
+        }
+        .upload-info h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .upload-info ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .upload-info li {
+            margin-bottom: 0.5rem;
+        }
+        .pricing-info {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        /* Activation pricing */
+        .activation-prices {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .activation-option {
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .activation-option:hover {
+            background: rgba(52, 152, 219, 0.2);
+            border-color: var(--accent);
+        }
+        .activation-option.selected {
+            background: rgba(52, 152, 219, 0.3);
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        .activation-duration {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .activation-price {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .btn-activate {
+            background: var(--accent2);
+        }
+        .btn-activate:hover {
+            background: #8e44ad;
+        }
+        
+        /* Sub-tab content management */
+        .sub-tab-content {
+            display: none;
+        }
+        .sub-tab-content.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-row">
-  <div class="brand">Gsm Technology</div>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="support.html">Support</a>
-      </nav>
-      <div class="actions">
-        <input id="search" placeholder="Search products..." />
-        <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-left">
-          <h1>Wholesale electronics, accessories and unlocking services</h1>
-          <p>Fast shipping, competitive pricing, global support — demo clone for educational purposes.</p>
-          <a href="products.html" class="btn">Shop Products</a>
+    <!-- NEW SCROLLING BANNER -->
+    <div class="scrolling-banner">
+        <div class="scrolling-content">
+            <span>For Computer Repair</span>
+            <span>•</span>
+            <span>Printer and Scanner Configuration</span>
+            <span>•</span>
+            <span>All Phone Flashing and Unlocking</span>
+            <span>•</span>
+            <span><i class="fab fa-whatsapp whatsapp-logo"></i> 0752000550</span>
+            <span>•</span>
+            <span><i class="fas fa-phone phone-logo"></i> 0707398858</span>
+            <span>•</span>
+            <span><i class="fas fa-envelope email-logo"></i> kingzenttechz@gmail.com</span>
+            <span>•</span>
+            <span>or visit our website https://kingzenttechz.com</span>
+            <span>•</span>
+            <span class="welcome-text">!!Welcome!!</span>
+            <span>•</span>
+            <span>For Computer Repair</span>
+            <span>•</span>
+            <span>Printer and Scanner Configuration</span>
+            <span>•</span>
+            <span>All Phone Flashing and Unlocking</span>
+            <span>•</span>
+            <span><i class="fab fa-whatsapp whatsapp-logo"></i> 0752000550</span>
+            <span>•</span>
+            <span><i class="fas fa-phone phone-logo"></i> 0707398858</span>
+            <span>•</span>
+            <span><i class="fas fa-envelope email-logo"></i> kingzenttechz@gmail.com</span>
+            <span>•</span>
+            <span>or visit our website https://kingzenttechz.com</span>
+            <span>•</span>
+            <span class="welcome-text">!!Welcome!!</span>
         </div>
-        <div class="hero-right">
-          <img src="https://gsmserver.com/image/logo/logo-gsm.svg" alt="Gsm Technology" style="width:100%;max-width:320px" onerror="this.style.opacity=0.15" />
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/Screenshot%202025-09-14%20185659.png" alt="KINGZ ENT TECHZ Logo" style="height: 80px;">
+                </div>
+                <div class="tagline">Tool Rentals</div>
+            </div>
+            
+            <nav id="mainNav">
+                <a href="#home-content" class="nav-tab active" id="home-tab">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#tools-content" class="nav-tab" id="tools-tab">
+                    <i class="fas fa-tools"></i> Tools
+                </a>
+                <a href="#online-services-content" class="nav-tab" id="online-services-tab">
+                    <i class="fas fa-laptop"></i> Online Computer Services
+                </a>
+                <a href="#about-content" class="nav-tab" id="about-tab">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="#support-content" class="nav-tab" id="support-tab">
+                    <i class="fas fa-headset"></i> Support
+                </a>
+                <a href="#legal-content" class="nav-tab" id="legal-tab">
+                    <i class="fas fa-balance-scale"></i> Legal
+                </a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="user-icon" id="user-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-dropdown">
+                    <a href="#" id="login-link">Login</a>
+                    <a href="#" id="signup-link">Sign Up</a>
+                </div>
+            </div>
         </div>
-      </div>
+    </header>
+
+    <!-- Home Tab Content -->
+    <section id="home-content" class="tab-content active">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">INSTANT 24/7 DELIVERY</div>
+                <h1>Professional Digital Services</h1>
+                <p>Our online computer service and digital tool rentals give you the freedom to tackle any project,without hefty investment..</p>
+                <a href="https://wa.me/254752000550" class="support-number">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card animated">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-name">Tool Rentals</h3>
+                        <p class="service-description">
+                            Rent premium digital tools for device unlocking, repair, and customization. 
+                            Instant access after payment.
+                        </p>
+                        <a href="#tools-content" class="btn rent-now" onclick="switchTab('tools-tab')">Browse Tools</a>
+                    </div>
+                </div>
+                
+                <div class="service-card animated" style="animation-delay: 0.1s;">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-name">Online Services</h3>
+                        <p class="service-description">
+                            Access our online cyber services, software downloads, and digital typing services.
+                            All at affordable prices.
+                        </p>
+                        <a href="#online-services-content" class="btn btn-cyber rent-now" onclick="switchTab('online-services-tab')">Explore Services</a>
+                    </div>
+                </div>
+                
+                <div class="service-card animated" style="animation-delay: 0.2s;">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-name">24/7 Support</h3>
+                        <p class="service-description">
+                            Our support team is available 24/7 to assist you with any questions or issues. 
+                            Contact us via WhatsApp.
+                        </p>
+                        <a href="https://wa.me/254752000550" class="btn btn-outline">Contact Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="featured container">
-      <h2>Featured Products</h2>
-      <div id="products-grid" class="grid">
-        <!-- products injected by app.js -->
-      </div>
+    <!-- Tools Section -->
+    <section class="container tab-content" id="tools-content">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">INSTANT 24/7 AUTO-DELIVERY</div>
+                <h1>Our Rental Tools</h1>
+                <p>Get Login ID/password INSTANTLY after payment. No waiting!</p>
+                <a href="https://wa.me/254752000550" class="support-number">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Sub-tabs for Tools section -->
+            <div class="sub-tabs">
+                <a href="#tools-rentals" class="sub-tab active" id="tools-rentals-tab">Tools for Rentals</a>
+                <a href="#tools-activations" class="sub-tab" id="tools-activations-tab">Tools for Activations</a>
+            </div>
+            
+            <!-- Tools for Rentals Sub-tab -->
+            <div id="tools-rentals" class="sub-tab-content active">
+                <h2 class="section-title">Available Tools for Rent</h2>
+                <p class="section-subtitle">Select a tool to rent instantly</p>
+                
+                <div class="tools-grid">
+                    <!-- AMT Tool -->
+                    <div class="tool-card animated">
+                        <div class="tool-header">
+                            <span>AMT Tool</span>
+                            <span class="tool-server">3 HOURS</span>
+                        </div>
+                        <div class="tool-image-container">
+                            <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/amt%20tool.png" alt="AMT Tool Logo">
+                        </div>
+                        <div class="tool-body">
+                            <h3 class="tool-name">Android Multi Tool</h3>
+                            <div class="tool-feature">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 3 Hours</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Delivery: Instant</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-key"></i>
+                                <span>User ID & Password</span>
+                            </div>
+                            <div class="price-options">
+                                <div class="price-option">
+                                    <span>Rental Price:</span>
+                                    <div class="dual-price">
+                                        <span class="rent-badge">$0.80</span>
+                                    </div>
+                                </div>
+                                <div class="kes-price">KES 103.38</div>
+                            </div>
+                            <button class="btn rent-now" onclick="rentTool('AMT Tool', 0.80, 103.38)">Rent Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- AWT Tool -->
+                    <div class="tool-card animated">
+                        <div class="tool-header">
+                            <span>AWT Tool</span>
+                            <span class="tool-server">48 HOURS</span>
+                        </div>
+                        <div class="tool-image-container">
+                            <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/AWT%20TOOL%20LOGO.webp" alt="AWT Tool Logo">
+                        </div>
+                        <div class="tool-body">
+                            <h3 class="tool-name">Android Win Tool Tool</h3>
+                            <div class="tool-feature">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 48 Hours</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Delivery: Instant</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-key"></i>
+                                <span>User ID & Password</span>
+                            </div>
+                            <div class="price-options">
+                                <div class="price-option">
+                                    <span>Rental Price:</span>
+                                    <div class="dual-price">
+                                        <span class="rent-badge">$1.90</span>
+                                    </div>
+                                </div>
+                                <div class="kes-price">KES 246.05</div>
+                            </div>
+                            <button class="btn rent-now" onclick="rentTool('AWT Tool', 1.90, 246.05)">Rent Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- ANONYSHU Tool -->
+                    <div class="tool-card animated">
+                        <div class="tool-header">
+                            <span>Anonyshu Tool</span>
+                            <span class="tool-server">12 HOURS</span>
+                        </div>
+                        <div class="tool-image-container">
+                            <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/logo%20ANONYSHU.ico" alt="ANONYSHU Tool Logo">
+                        </div>
+                        <div class="tool-body">
+                            <h3 class="tool-name">Anonyshu Tool</h3>
+                            <div class="tool-feature">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 12 Hours</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Delivery: Immediately</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-key"></i>
+                                <span>User ID & Password</span>
+                            </div>
+                            <div class="price-options">
+                                <div class="price-option">
+                                    <span>Rental Price:</span>
+                                    <div class="dual-price">
+                                        <span class="rent-badge">$2.32</span>
+                                    </div>
+                                </div>
+                                <div class="kes-price">KES 300.00</div>
+                            </div>
+                            <button class="btn rent-now" onclick="rentTool('Anonyshu Tool', 2.32, 300.00)">Rent Now</button>
+                        </div>
+                    </div>
+                    
+                                                <!-- CF Tool -->
+                <div class="tool-card animated">
+                    <div class="tool-header">
+                        <span>CF Tool</span>
+                        <span class="tool-server">6 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/Cf-Tool-Rent.png" alt="CF Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">CF Tool</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 6 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.00</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 129.22.00</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('CF Tool', 1.00, 129.22)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- CHEETAH TOOL -->
+                <div class="tool-card animated" style="animation-delay: 0.1s;">
+                    <div class="tool-header">
+                        <span>CHEETAH TOOL</span>
+                        <span class="tool-server">4 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/cheetah%20tool.png" alt="Cheetah Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">CHEETAH TOOL RENT</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 4 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.50</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 193.84</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('CHEETAH TOOL', 1.50, 193.84)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- DFT PRO Tool -->
+                <div class="tool-card animated" style="animation-delay: 0.2s;">
+                    <div class="tool-header">
+                        <span>DFT PRO Tool</span>
+                        <span class="tool-server">48 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/dft%20pro.png" alt="DFT Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">DFT PRO Tool</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 48 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Immediately</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$2.50</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 323.06</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('DFT PRO Tool', 2.50, 323.06)">Rent Now</button>
+                    </div>
+                </div>
+                                <!-- EFT PRO Tool -->
+                <div class="tool-card animated" style="animation-delay: 0.2s;">
+                    <div class="tool-header">
+                        <span>EFT PRO Tool</span>
+                        <span class="tool-server">1 HOUR</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/EFT%20TOOL%20LOGO.jpg" alt="EFT Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">EFT PRO Tool</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 1 Hour</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Minutes</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$3.50</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 452.29</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('EFT PRO Tool DONGLE', 3.50, 452.29)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- EMT/EME Tool -->
+                <div class="tool-card animated" style="animation-delay: 0.3s;">
+                    <div class="tool-header">
+                        <span>EMT/EME Tool</span>
+                        <span class="tool-server">6 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/eft%20pro%20tool.webp" alt="EMT Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">EMT/EME Tool</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 6 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Immediately</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.00</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 129.22</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('EMT/EME Tool', 1.00, 129.22)">Rent Now</button>
+                    </div>
+                </div>
+                 <!-- FRT Tool -->
+                <div class="tool-card animated" style="animation-delay: 0.3s;">
+                    <div class="tool-header">
+                        <span>FRT Tool</span>
+                        <span class="tool-server">1 HOUR</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/FRT%20TOOL%20LOGO.jpg" alt="FRT Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">FRT Tool</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 1 Hour</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Minutes</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.70</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 219.68</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('FRT Tool DONGLE', 1.70, 219.68)">Rent Now</button>
+                    </div>
+                </div>
+                                 <!-- GRIFFIN UNLOCKER Tool -->
+                <div class="tool-card animated" style="animation-delay: 0.3s;">
+                    <div class="tool-header">
+                        <span>Griffin Unlocker Tool</span>
+                        <span class="tool-server">6 HOUR</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/GRIFFIN%20TOOL%20logo.png" alt="Griffin Unlocker Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">Griffin Unlocker Tool</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 6 Hour</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$2.50</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 323.06</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Griffin Unlocker Tool', 2.50, 323.06)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- Hydra Tool -->
+                <div class="tool-card animated" style="animation-delay: 0.4s;">
+                    <div class="tool-header">
+                        <span>Hydra Tool</span>
+                        <span class="tool-server">24 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/hydra%20tool.jpg" alt="Hydra Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">Hydra Tool Digital License</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 24 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Immediately</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.70</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 219.68</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Hydra Tool', 1.70, 219.68)">Rent Now</button>
+                    </div>
+                </div>
+                <!-- KG KILLER Tool -->
+                <div class="tool-card animated" style="animation-delay: 0.4s;">
+                    <div class="tool-header">
+                        <span>Kg Killer Tool</span>
+                        <span class="tool-server">4 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/KG%20KILLER%20TOOL.png" alt="Kg Killer Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">Kg Killer Tool Digital License</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 4 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.70</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 219.68</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Kg Killer Tool', 1.70, 219.68)">Rent Now</button>
+                    </div>
+                </div>
+
+               
+                <!-- MDM FIX TOOL -->
+                <div class="tool-card animated" style="animation-delay: 0.6s;">
+                    <div class="tool-header">
+                        <span>MDM FIX TOOL</span>
+                        <span class="tool-server">6 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/mdmfix%20tool.jpg" alt="MDM Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">MDM FIX TOOL RENT</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 6 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$2.60</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 335.98</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('MDM FIX TOOL', 2.60, 335.98)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- Mst Tool -->
+                <div class="tool-card animated" style="animation-delay: 0.7s;">
+                    <div class="tool-header">
+                        <span>Mst Tool</span>
+                        <span class="tool-server">6 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/mst%20tool.webp" alt="Mst Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">MobileSea Service Tool</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 6 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: immediately</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.00</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 129.22</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Mst Tool', 1.00, 129.22)">Rent Now</button>
+                    </div>
+                </div>
+
+                                <!-- NiceUnlocker Tool -->
+                <div class="tool-card animated" style="animation-delay: 0.7s;">
+                    <div class="tool-header">
+                        <span>NiceUnlocker Tool</span>
+                        <span class="tool-server">6 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/nice%20unlock%20tool.jpg" alt="NiceUnlocker Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">NiceUnlocker Tool</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 6 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: immediately</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$2.80</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 361.82</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Mst Tool', 2.80, 361.82)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- Pandora Digital -->
+                <div class="tool-card animated" style="animation-delay: 0.8s;">
+                    <div class="tool-header">
+                        <span>Pandora Digital</span>
+                        <span class="tool-server">48 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/pandora%20tool.jpg" alt="Pandora Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">Pandora Digital Login</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 48 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$9.80</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 1,270.00</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Pandora Digital', 9.80, 1270.00)">Rent Now</button>
+                    </div>
+                </div>
+                
+                <!-- RTC Digital -->
+                <div class="tool-card animated" style="animation-delay: 0.8s;">
+                    <div class="tool-header">
+                        <span>Rtc Tool</span>
+                        <span class="tool-server">12 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/RTC%20TOOL%20LOGO.png" alt="Rtc Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">Rtc Tool Login</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 12 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$2.50</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 323.06</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Rtc Tool', 2.50, 323.06)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- Sigma Plus Share -->
+                <div class="tool-card animated" style="animation-delay: 0.9s;">
+                    <div class="tool-header">
+                        <span>Sigma Plus Share</span>
+                        <span class="tool-server">1 HOUR</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/sigma%20tool.jpg" alt="Sigma Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">Sigma Plus Share</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 1 Hour</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Minutes</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$3.5</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 452.29</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Sigma Plus Share', 3.50, 452.29)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- TR PRO Tool -->
+                <div class="tool-card animated" style="animation-delay: 1.0s;">
+                    <div class="tool-header">
+                        <span>Tr Pro Tool</span>
+                        <span class="tool-server">RENTAL</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/TR%20TOOL%20LOGO.jpeg" alt="Tr Pro Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">Tr Pro Tool Rent</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: Varies</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$2.50</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 323.06</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Tr Pro Tool', 2.50, 323.06)">Rent Now</button>
+                    </div>
+                </div>
+                                <!-- Tfm Tool -->
+                <div class="tool-card animated" style="animation-delay: 1.0s;">
+                    <div class="tool-header">
+                        <span>Tfm Tool</span>
+                        <span class="tool-server">RENTAL</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/tfm%20tool.png" alt="Tfm Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">Tfm Tool Rent</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: Varies</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.00</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 129.22</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('Tfm Tool', 1.00, 129.22)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- TSM-Tools -->
+                <div class="tool-card animated" style="animation-delay: 1.1s;">
+                    <div class="tool-header">
+                        <span>TSM-Tools</span>
+                        <span class="tool-server">12 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/tsm%20tool.jpg" alt="TSM Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">TSM-Tools Rent</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 12 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.50</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 193.84</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('TSM-Tools', 1.50, 193.84)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- UAT Pro -->
+                <div class="tool-card animated" style="animation-delay: 1.2s;">
+                    <div class="tool-header">
+                        <span>UAT Pro</span>
+                        <span class="tool-server">5 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/uat%20tool.jpg" alt="UAT Tool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">UAT Pro Login</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 5 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$1.70</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 219.68</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('UAT Pro', 1.70, 219.68)">Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- UnlockTool -->
+                <div class="tool-card animated" style="animation-delay: 1.3s;">
+                    <div class="tool-header">
+                        <span>UnlockTool</span>
+                        <span class="tool-server">6 HOURS</span>
+                    </div>
+                    <div class="tool-image-container">
+                        <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/unlocktool%20png.png" alt="UnlockTool Logo">
+                    </div>
+                    <div class="tool-body">
+                        <h3 class="tool-name">UnlockTool 6 Hours</h3>
+                        <div class="tool-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 6 Hours</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Delivery: Instant</span>
+                        </div>
+                        <div class="tool-feature">
+                            <i class="fas fa-key"></i>
+                            <span>User ID & Password</span>
+                        </div>
+                        <div class="price-options">
+                            <div class="price-option">
+                                <span>Rental Price:</span>
+                                <div class="dual-price">
+                                    <span class="rent-badge">$0.80</span>
+                                </div>
+                            </div>
+                            <div class="kes-price">KES 103.38</div>
+                        </div>
+                        <button class="btn rent-now" onclick="rentTool('UnlockTool', 0.80, 103.38)">Rent Now</button>
+                    
+                </div>
+            </div>
+               </div>
+        </div>
+    </section>
+            <!-- Tools for Activations Sub-tab -->
+            <div id="tools-activations" class="sub-tab-content">
+                <h2 class="section-title">Tools for Activations</h2>
+                <p class="section-subtitle">Purchase long-term activations for your tools</p>
+                
+                <div class="tools-grid">
+                    <!-- AMT Tool Activation -->
+                    <div class="tool-card animated">
+                        <div class="tool-header">
+                            <span>AMT Tool</span>
+                            <span class="tool-server">ACTIVATION</span>
+                        </div>
+                        <div class="tool-image-container">
+                            <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/amt%20tool.png" alt="AMT Tool Logo">
+                        </div>
+                        <div class="tool-body">
+                            <h3 class="tool-name">Android Multi Tool</h3>
+                            <div class="tool-feature">
+                                <i class="fas fa-key"></i>
+                                <span>Full Activation</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Minutes</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Official License</span>
+                            </div>
+                            
+                            <div class="activation-prices">
+                                <div class="activation-option" data-duration="3 Months" data-price="$18" onclick="selectActivationDuration(this, 'AMT Tool')">
+                                    <div class="activation-duration">3 Months</div>
+                                    <div class="activation-price">$18</div>
+                                </div>
+                                <div class="activation-option" data-duration="6 Months" data-price="$25" onclick="selectActivationDuration(this, 'AMT Tool')">
+                                    <div class="activation-duration">6 Months</div>
+                                    <div class="activation-price">$25</div>
+                                </div>
+                                <div class="activation-option" data-duration="12 Months" data-price="$34" onclick="selectActivationDuration(this, 'AMT Tool')">
+                                    <div class="activation-duration">12 Months</div>
+                                    <div class="activation-price">$34</div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-activate" id="activate-amt-btn" onclick="activateTool('AMT Tool')" disabled>Select Duration First</button>
+                        </div>
+                    </div>
+                    
+                                <!-- AnonySHU Tool Activation -->
+                    <div class="tool-card animated">
+                        <div class="tool-header">
+                            <span>AnonyUSH Tool</span>
+                            <span class="tool-server">ACTIVATION</span>
+                        </div>
+                        <div class="tool-image-container">
+                            <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/logo%20ANONYSHU.ico" alt="AnonySHU Tool Logo">
+                        </div>
+                        <div class="tool-body">
+                            <h3 class="tool-name">AnonySHU Tool</h3>
+                            <div class="tool-feature">
+                                <i class="fas fa-key"></i>
+                                <span>Full Activation</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Minutes</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Official License</span>
+                            </div>
+                            
+                            <div class="activation-prices">
+                                <div class="activation-option" data-duration="3 Months" data-price="$00" onclick="selectActivationDuration(this, 'AnonySHU Tool')">
+                                    <div class="activation-duration">3 Months</div>
+                                    <div class="activation-price">$N/A</div>
+                                </div>
+                                <div class="activation-option" data-duration="6 Months" data-price="$00" onclick="selectActivationDuration(this, 'AnonySHU Tool')">
+                                    <div class="activation-duration">6 Months</div>
+                                    <div class="activation-price">$N/A</div>
+                                </div>
+                                <div class="activation-option" data-duration="12 Months" data-price="$65" onclick="selectActivationDuration(this, 'AnonySHU Tool')">
+                                    <div class="activation-duration">12 Months</div>
+                                    <div class="activation-price">$65</div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-activate" id="activate-amt-btn" onclick="activateTool('AnonySHU Tool')" disabled>Select Duration First</button>
+                        </div>
+                    </div>
+
+             <!-- MDM FIX Tool Activation -->
+                    <div class="tool-card animated">
+                        <div class="tool-header">
+                            <span>MDM FIX Tool</span>
+                            <span class="tool-server">ACTIVATION</span>
+                        </div>
+                        <div class="tool-image-container">
+                            <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/mdmfix%20tool.jpg" alt="MDM fix Tool Logo">
+                        </div>
+                        <div class="tool-body">
+                            <h3 class="tool-name">MDM FIX Tool</h3>
+                            <div class="tool-feature">
+                                <i class="fas fa-key"></i>
+                                <span>Full Activation</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Minutes</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Official License</span>
+                            </div>
+                            
+                            <div class="activation-prices">
+                                <div class="activation-option" data-duration="3 Months" data-price="$00" onclick="selectActivationDuration(this, 'MDM FIX Tool')">
+                                    <div class="activation-duration">3 Months</div>
+                                    <div class="activation-price">$N/A</div>
+                                </div>
+                                <div class="activation-option" data-duration="6 Months" data-price="$00" onclick="selectActivationDuration(this, 'MDM FIX Tool')">
+                                    <div class="activation-duration">6 Months</div>
+                                    <div class="activation-price">$N/A</div>
+                                </div>
+                                <div class="activation-option" data-duration="12 Months" data-price="$00" onclick="selectActivationDuration(this, 'MDM FIX Tool')">
+                                    <div class="activation-duration">12 Months</div>
+                                    <div class="activation-price">$68</div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-activate" id="activate-amt-btn" onclick="activateTool('AMT Tool')" disabled>Select Duration First</button>
+                        </div>
+                    </div>
+
+                                 <!-- PANDORA Tool Activation -->
+                    <div class="tool-card animated">
+                        <div class="tool-header">
+                            <span>PANDORA Tool</span>
+                            <span class="tool-server">ACTIVATION</span>
+                        </div>
+                        <div class="tool-image-container">
+                            <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/pandora%20tool.jpg" alt="PANDORA Tool Logo">
+                        </div>
+                        <div class="tool-body">
+                            <h3 class="tool-name">Pandora Tool</h3>
+                            <div class="tool-feature">
+                                <i class="fas fa-key"></i>
+                                <span>Full Activation</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Minutes</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Official License</span>
+                            </div>
+                            
+                            <div class="activation-prices">
+                                <div class="activation-option" data-duration="3 Months" data-price="$00" onclick="selectActivationDuration(this, 'PANDORA Tool')">
+                                    <div class="activation-duration">3 Months</div>
+                                    <div class="activation-price">$N/A</div>
+                                </div>
+                                <div class="activation-option" data-duration="6 Months" data-price="$00" onclick="selectActivationDuration(this, 'PANDORA Tool')">
+                                    <div class="activation-duration">6 Months</div>
+                                    <div class="activation-price">$N/A</div>
+                                </div>
+                                <div class="activation-option" data-duration="12 Months" data-price="$70" onclick="selectActivationDuration(this, 'PANDORA Tool')">
+                                    <div class="activation-duration">12 Months</div>
+                                    <div class="activation-price">$70</div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-activate" id="activate-amt-btn" onclick="activateTool('PANDORA Tool')" disabled>Select Duration First</button>
+                        </div>
+                    </div>
+
+                                 <!-- NICEUNLOCKER Tool Activation -->
+                    <div class="tool-card animated">
+                        <div class="tool-header">
+                            <span>NICEUNLOCKER Tool</span>
+                            <span class="tool-server">ACTIVATION</span>
+                        </div>
+                        <div class="tool-image-container">
+                            <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/nice%20unlock%20tool.jpg" alt="NiceUnlocker Tool Logo">
+                        </div>
+                        <div class="tool-body">
+                            <h3 class="tool-name">Niceunlocker Tool</h3>
+                            <div class="tool-feature">
+                                <i class="fas fa-key"></i>
+                                <span>Full Activation</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Minutes</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Official License</span>
+                            </div>
+                            
+                            <div class="activation-prices">
+                                <div class="activation-option" data-duration="3 Months" data-price="$24" onclick="selectActivationDuration(this, 'NICEUNLOCKER Tool')">
+                                    <div class="activation-duration">3 Months</div>
+                                    <div class="activation-price">$24</div>
+                                </div>
+                                <div class="activation-option" data-duration="6 Months" data-price="$31" onclick="selectActivationDuration(this, 'NICEUNLOCKER Tool')">
+                                    <div class="activation-duration">6 Months</div>
+                                    <div class="activation-price">$31</div>
+                                </div>
+                                <div class="activation-option" data-duration="12 Months" data-price="$47" onclick="selectActivationDuration(this, 'NICEUNLOCKER Tool')">
+                                    <div class="activation-duration">12 Months</div>
+                                    <div class="activation-price">$47</div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-activate" id="activate-amt-btn" onclick="activateTool('NICEUNLOCKER Tool')" disabled>Select Duration First</button>
+                        </div>
+                    </div>
+
+                                 <!-- UNLOCKTOOL Tool Activation -->
+                    <div class="tool-card animated">
+                        <div class="tool-header">
+                            <span>UNLOCKTOOL Tool</span>
+                            <span class="tool-server">ACTIVATION</span>
+                        </div>
+                        <div class="tool-image-container">
+                            <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/unlocktool%20png.png" alt="UNLOCKTOOL Tool Logo">
+                        </div>
+                        <div class="tool-body">
+                            <h3 class="tool-name">UnlockTool Tool</h3>
+                            <div class="tool-feature">
+                                <i class="fas fa-key"></i>
+                                <span>Full Activation</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Minutes</span>
+                            </div>
+                            <div class="tool-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Official License</span>
+                            </div>
+                            
+                            <div class="activation-prices">
+                                <div class="activation-option" data-duration="3 Months" data-price="$25" onclick="selectActivationDuration(this, 'UNLOCKTOOL Tool')">
+                                    <div class="activation-duration">3 Months</div>
+                                    <div class="activation-price">$25</div>
+                                </div>
+                                <div class="activation-option" data-duration="6 Months" data-price="$30" onclick="selectActivationDuration(this, 'UNLOCKTOOL Tool')">
+                                    <div class="activation-duration">6 Months</div>
+                                    <div class="activation-price">$30</div>
+                                </div>
+                                <div class="activation-option" data-duration="12 Months" data-price="$47" onclick="selectActivationDuration(this, 'UNLOCKTOOL Tool')">
+                                    <div class="activation-duration">12 Months</div>
+                                    <div class="activation-price">$47</div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-activate" id="activate-amt-btn" onclick="activateTool('UNLOCKTOOL Tool')" disabled>Select Duration First</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="mini-features container">
-      <div class="feature">Fast Global Shipping</div>
-      <div class="feature">Secure Payments</div>
-      <div class="feature">24/7 Support</div>
-    </section>
-  </main>
+    <!-- Online Computer Services Section -->
+    <section class="container tab-content" id="online-services-content">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">ONLINE COMPUTER SERVICES</div>
+                <h1>Online Computer Services</h1>
+                <p>Access our wide range of online services including cyber services, software downloads, and digital typing</p>
+                <a href="https://wa.me/254752000550" class="support-number">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                </a>
+            </div>
+        </div>
 
-  <footer class="site-footer">
-    <div class="container">
-  <div>© 2025 Gsm Technology — For educational/demo use only.</div>
-      <div class="links">
-        <a href="#">Terms</a> · <a href="#">Privacy</a>
-      </div>
+        <div class="container">
+            <!-- Sub-tabs for Online Services section -->
+            <div class="sub-tabs">
+                <a href="#online-cyber" class="sub-tab active" id="online-cyber-tab">Online Cyber Services</a>
+                <a href="#softwares" class="sub-tab" id="softwares-tab">Softwares</a>
+                <a href="#digital-typing" class="sub-tab" id="digital-typing-tab">Digital Typing Services</a>
+            </div>
+            
+            <!-- Online Cyber Services Sub-tab -->
+            <div id="online-cyber" class="sub-tab-content active">
+                <h2 class="section-title">Online Cyber Services</h2>
+                <p class="section-subtitle">Professional cyber services for all your digital needs</p>
+                
+                <div class="services-grid">
+                    <div class="service-card animated">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3 class="service-name">Device Security</h3>
+                            <p class="service-description">
+                                Comprehensive security solutions for your devices including antivirus installation, 
+                                malware removal, and security optimization.
+                            </p>
+                            <button class="btn" onclick="selectService('Device Security')">Select Service</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card animated" style="animation-delay: 0.1s;">
+                        <div class="service-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3 class="service-name">Network Solutions</h3>
+                            <p class="service-description">
+                                Network setup, configuration, troubleshooting, and optimization for home and 
+                                business networks.
+                            </p>
+                            <button class="btn" onclick="selectService('Network Solutions')">Select Service</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card animated" style="animation-delay: 0.2s;">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3 class="service-name">Data Recovery</h3>
+                            <p class="service-description">
+                                Professional data recovery services for accidentally deleted files, formatted 
+                                drives, and corrupted storage devices.
+                            </p>
+                            <button class="btn" onclick="selectService('Data Recovery')">Select Service</button>
+                        </div>
+                    </div>
+                    
+  <div class="service-card animated" style="animation-delay: 0.3s;">
+                        <div class="service-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3 class="service-name">Password Recovery</h3>
+                            <p class="service-description">
+                                Professional password recovery services for Windows, archives, documents, 
+                                and other protected files.
+                            </p>
+                            <button class="btn" onclick="selectService('Password Recovery')">Select Service</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card animated" style="animation-delay: 0.3s;">
+                        <div class="service-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3 class="service-name">Build website</h3>
+                            <p class="service-description">
+                                Professionally Create all kind of website including E-commerce and business website to sell services and products online.
+                            </p>
+                            <button class="btn" onclick="selectService('Build website')">Select Service</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card animated" style="animation-delay: 0.4s;">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3 class="service-name">Mobile Services</h3>
+                            <p class="service-description">
+                                Complete mobile services including unlocking, flashing, firmware updates, 
+                                and software installation.
+                            </p>
+                            <button class="btn" onclick="selectService('Mobile Services')">Select Service</button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card animated" style="animation-delay: 0.5s;">
+                        <div class="service-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="service-body">
+                            <h3 class="service-name">PC Optimization</h3>
+                            <p class="service-description">
+                                Complete PC optimization services including OS installation, driver updates, 
+                                and performance tuning.
+                            </p>
+                            <button class="btn" onclick="selectService('PC Optimization')">Select Service</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Softwares Sub-tab -->
+            <div id="softwares" class="sub-tab-content">
+                <h2 class="section-title">Software Downloads</h2>
+                <p class="section-subtitle">Premium software downloads at affordable prices</p>
+                
+                <div class="software-grid">
+                    <div class="software-card animated">
+                        <div class="software-header">
+                            <span class="software-name">Adobe Photoshop</span>
+                            <span class="software-price">$3</span>
+                        </div>
+                        <div class="software-body">
+                            <p class="software-description">
+                                Professional image editing software with advanced features for photographers, 
+                                designers, and digital artists.
+                            </p>
+                            <button class="btn" onclick="selectSoftware('Adobe Photoshop')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="software-card animated" style="animation-delay: 0.1s;">
+                        <div class="software-header">
+                            <span class="software-name">Microsoft Office</span>
+                            <span class="software-price">$2.50</span>
+                        </div>
+                        <div class="software-body">
+                            <p class="software-description">
+                                Complete office suite including Word, Excel, PowerPoint, and more for all your 
+                                productivity needs.
+                            </p>
+                            <button class="btn" onclick="selectSoftware('Microsoft Office')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="software-card animated" style="animation-delay: 0.2s;">
+                        <div class="software-header">
+                            <span class="software-name">Windows 10/11</span>
+                            <span class="software-price">$2</span>
+                        </div>
+                        <div class="software-body">
+                            <p class="software-description">
+                                Latest Windows operating systems with all features activated and regular updates.
+                            </p>
+                            <button class="btn" onclick="selectSoftware('Windows 10/11')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="software-card animated" style="animation-delay: 0.3s;">
+                        <div class="software-header">
+                            <span class="software-name">Antivirus Software</span>
+                            <span class="software-price">$1.50</span>
+                        </div>
+                        <div class="software-body">
+                            <p class="software-description">
+                                Premium antivirus protection from top brands including Norton, Kaspersky, and Bitdefender.
+                            </p>
+                            <button class="btn" onclick="selectSoftware('Antivirus Software')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                     <div class="software-card animated" style="animation-delay: 0.5s;">
+                        <div class="software-header">
+                            <span class="software-name">CAD Software</span>
+                            <span class="software-price">$4</span>
+                        </div>
+                        <div class="software-body">
+                            <p class="software-description">
+                                Professional CAD software for engineering, architecture, and 3D design projects.
+                            </p>
+                            <button class="btn" onclick="selectSoftware('CAD Software')">Download Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="software-card animated" style="animation-delay: 0.5s;">
+                        <div class="software-header">
+                            <span class="software-name">Virtual DJ Software</span>
+                            <span class="software-price">$4</span>
+                        </div>
+                        <div class="software-body">
+                            <p class="software-description">
+                                Professional Licenced Virtual Dj software for Disk Jokers(DJ's), Video Jokers(VJ's) and for General Entertainment.
+                            </p>
+                            <button class="btn" onclick="selectSoftware('Virtual DJ Software')">Download Now</button>
+                        </div>
+                    </div>
+
+                      <div class="software-card animated" style="animation-delay: 0.4s;">
+                        <div class="software-header">
+                            <span class="software-name">Video Editing Suite</span>
+                            <span class="software-price">$3.50</span>
+                        </div>
+                        <div class="software-body">
+                            <p class="software-description">
+                                Professional video editing software including Premiere Pro, After Effects, and DaVinci Resolve.
+                            </p>
+                            <button class="btn" onclick="selectSoftware('Video Editing Suite')">Download Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Digital Typing Services Sub-tab -->
+            <div id="digital-typing" class="sub-tab-content">
+                <h2 class="section-title">Digital Typing Services</h2>
+                <p class="section-subtitle">Professional document typing and conversion services</p>
+                
+                <div class="upload-section">
+                    <div class="upload-info">
+                        <h3>How It Works</h3>
+                        <p>Upload your scanned or photographed documents and we'll type them to digital text format.</p>
+                        <ul>
+                            <li>Upload your document via WhatsApp to 0752000550</li>
+                            <li>Specify the reason for upload and any special requirements</li>
+                            <li>We'll process your document and return the digital version</li>
+                            <li>Payment is required after you confirm the quality of the work</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-info">
+                        <h3>Pricing</h3>
+                        <p><strong>$0.5 per page</strong> for documents with less than 10 pages</p>
+                        <p><strong>$0.3 per page</strong> for documents with 10 or more pages</p>
+                    </div>
+                    
+                    <a href="https://wa.me/254752000550?text=Hello!%20I%20want%20to%20use%20your%20Digital%20Typing%20Services.%20Please%20provide%20me%20with%20more%20information." class="whatsapp-button">
+                        <i class="fab fa-whatsapp"></i> Contact for Digital Typing Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container tab-content" id="about-content">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">ABOUT OUR SERVICES</div>
+                <h1>Digital tools and Computer Services</h1>
+                <p>Learn about our rental services and how we can help you with your digital needs</p>
+                <a href="https://wa.me/254752000550" class="support-number">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title">About Our Services</h2>
+            <p class="section-subtitle">We provide digital tool rental, activation and computer  services with immediate delivery</p>
+            
+            <div class="services-grid">
+                <div class="service-card animated">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-name">Immediate Delivery</h3>
+                        <p class="service-description">
+                            Our system delivers login credentials immediately after payment confirmation.
+                            No waiting time, access your tools assap.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="service-card animated" style="animation-delay: 0.1s;">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-name">Secure & Reliable</h3>
+                        <p class="service-description">
+                            All our tools are verified and secure. We ensure reliable service with 99.9% uptime
+                            guarantee for all our rental tools and computer services.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="service-card animated" style="animation-delay: 0.2s;">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-name">Global Access</h3>
+                        <p class="service-description">
+                            Access our tools from anywhere in the world. Our services are available 24/7
+                            to customers worldwide.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legal-section">
+                <h3>Benefits of Using Our Services</h3>
+                <p>Our rental services provide numerous benefits for professionals and enthusiasts:</p>
+                <ul>
+                    <li>Cost-effective access to premium tools without large upfront investments</li>
+                    <li>Flexible rental periods to suit your specific needs</li>
+                    <li>No long-term commitments - rent only when you need</li>
+                    <li>Always access the latest versions of tools</li>
+                    <li>Professional support to help you maximize tool usage</li>
+                    <li>Secure payment options with instant delivery</li>
+                </ul>
+                <p>Whether you're a professional technician or a DIY enthusiast, our rental services provide the perfect solution for your digital tool needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="container tab-content" id="support-content">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">SUPPORT CENTER</div>
+                <h1>Customer Support</h1>
+                <p>We're here to help you with any questions or issues</p>
+                <a href="https://wa.me/254752000550" class="support-number">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title">Support Center</h2>
+            <p class="section-subtitle">Get help with your tool rentals and account</p>
+            
+            <div class="services-grid">
+                <div class="service-card animated">
+                    <div class="service-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-name">WhatsApp Support</h3>
+                        <p class="service-description">
+                            Get instant support via WhatsApp. Our team is available 24/7 to assist you with any issues.
+                        </p>
+                        <a href="https://wa.me/254752000550" class="btn">Contact via WhatsApp</a>
+                    </div>
+                </div>
+                
+                <div class="service-card animated" style="animation-delay: 0.1s;">
+                    <div class="service-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-name">Phone Support</h3>
+                        <p class="service-description">
+                            Call us for immediate assistance with your tool rentals or account issues.
+                        </p>
+                        <a href="tel:0707398858" class="btn btn-outline">Call: 0707398858</a>
+                    </div>
+                </div>
+                
+                <div class="service-card animated" style="animation-delay: 0.2s;">
+                    <div class="service-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-name">Email Support</h3>
+                        <p class="service-description">
+                            Send us an email and we'll get back to you within a few hours with a solution.
+                        </p>
+                        <a href="mailto:kingzenttechz@gmail.com" class="btn btn-cyber">Email Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Section -->
+    <section class="container tab-content" id="legal-content">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">LEGAL INFORMATION</div>
+                <h1>Legal Use of Software</h1>
+                <p>Important information about the legal use of our rental tools and services</p>
+                <a href="https://wa.me/254752000550" class="support-number">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title">Legal Information</h2>
+            <p class="section-subtitle">Please read carefully before using our services</p>
+            
+            <div class="legal-section">
+                <h3>Terms of Service</h3>
+                <p>By using our rental services, you agree to the following terms and conditions:</p>
+                <ul>
+                    <li>All tools are provided for legal use only</li>
+                    <li>You are responsible for ensuring you have proper authorization for any devices you work on</li>
+                    <li>We are not liable for any misuse of the tools rented through our service</li>
+                    <li>Rental periods are fixed and cannot be extended without additional payment</li>
+                    <li>Sharing of login credentials is strictly prohibited</li>
+                </ul>
+                
+                <h3>Legal Use Policy</h3>
+                <p>Our tools are intended for legitimate purposes only:</p>
+                <ul>
+                    <li>Device repair and maintenance with owner's consent</li>
+                    <li>Educational and research purposes</li>
+                    <li>Software development and testing</li>
+                    <li>Digital forensics with proper authorization</li>
+                </ul>
+                <p>Any illegal use of our tools is strictly prohibited and will result in immediate termination of service without refund.</p>
+                
+                <h3>Privacy Policy</h3>
+                <p>We value your privacy and are committed to protecting your personal information:</p>
+                <ul>
+                    <li>We collect only necessary information for providing our services</li>
+                    <li>Payment information is processed securely through trusted payment providers</li>
+                    <li>We do not share your personal information with third parties without your consent</li>
+                    <li>All data is stored securely and encrypted where necessary</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="container tab-content" id="payment-content">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">PAYMENT METHODS</div>
+                <h1>Payment Options</h1>
+                <p>Choose your preferred payment method and receive credentials instantly</p>
+                <a href="https://wa.me/254752000550" class="support-number">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title">Payment Methods</h2>
+            <p class="section-subtitle">Send payment and receive credentials INSTANTLY 24/7</p>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fab fa-cc-m-pesa"></i>
+                    <h4>M-Pesa (Matembo)</h4>
+                    <div class="payment-number">0707398858</div>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Airtel Money (Matembo)</h4>
+                    <div class="payment-number">0752000550</div>
+                </div>
+                
+                <div class="payment-method">
+                    <i class="fab fa-bitcoin"></i>
+                    <h4>Binance Pay</h4>
+                    <div class="payment-number">
+                        ID: 1108869988<br>
+                        Name: Kingz Technologiez
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; margin-top: 2rem; border: 1px solid var(--border);">
+                <h3 style="color: var(--text-light); margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-info-circle"></i> How It Works
+                </h3>
+                <ol style="padding-left: 1.5rem; color: var(--text-gray);">
+                    <li style="margin-bottom: 0.5rem;">Choose your tool or service</li>
+                    <li style="margin-bottom: 0.5rem;">Send exact amount via payment method</li>
+                    <li style="margin-bottom: 0.5rem;">WhatsApp transaction code to 0752000550</li>
+                    <li style="margin-bottom: 0.5rem;">Receive login credentials INSTANTLY</li>
+                    <li>Access begins immediately</li>
+                </ol>
+                <p style="margin-top: 1.5rem; font-weight: 500; color: var(--accent); display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-phone"></i> 
+                    <a href="tel:0752000550" style="color: inherit; text-decoration: none;">
+                        Need help? Call us anytime: 0752000550
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 KINGZ ENT TECHZ</p>
+            <p style="margin-top: 0.5rem;">
+                24/7 Support: 
+                <a href="https://wa.me/254752000550" style="color: var(--accent); text-decoration: none;">WhatsApp 0752000550</a> | 
+                <a href="tel:0707398858" style="color: var(--accent); text-decoration: none;">Call 0707398858</a>
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                <i class="fas fa-info-circle"></i> All services subject to our Terms of Service
+            </p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/254752000550" class="whatsapp-btn" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 99;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" class="form-control" placeholder="Enter your email" required>
+                    <div class="form-error" id="login-email-error">Please enter a valid email address</div>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
+                    <div class="form-error" id="login-password-error">Password must be at least 8 characters</div>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="form-footer">
+                    Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a>
+                </div>
+            </form>
+        </div>
     </div>
-  </footer>
-
-  <div id="chat-widget" class="chat-closed">
-    <div class="chat-header">Chat with us</div>
-    <div class="chat-body">
-      <div id="chat-messages"></div>
-      <div class="chat-input-row">
-        <input id="chat-input" placeholder="Ask about products or pricing..." />
-        <button id="chat-send">Send</button>
-      </div>
+    
+    <!-- Signup Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Sign Up</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" class="form-control" placeholder="Enter your full name" required>
+                    <div class="form-error" id="signup-name-error">Please enter your name</div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" class="form-control" placeholder="Enter your email" required>
+                    <div class="form-error" id="signup-email-error">Please enter a valid email address</div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" class="form-control" placeholder="Create a password" required>
+                    <div class="form-error" id="signup-password-error">Password must be at least 8 characters</div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" class="form-control" placeholder="Confirm your password" required>
+                    <div class="form-error" id="signup-confirm-error">Passwords do not match</div>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <div class="form-footer">
+                    Already have an account? <a href="#" id="switch-to-login">Login</a>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
 
-  <script src="app.js" defer></script>
+    <!-- Enhanced Payment Modal -->
+    <div class="modal" id="payment-modal">
+        <div class="payment-modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Complete Payment</h2>
+            
+            <div id="payment-tool-info" style="text-align: center; margin-bottom: 1.5rem;">
+                <h3 id="payment-tool-name"></h3>
+                <p id="payment-tool-price"></p>
+            </div>
+            
+            <div class="rental-instructions">
+                <h4 style="margin-bottom: 0.5rem; color: var(--text-light);">Instructions:</h4>
+                 <ol>
+                    <li>Send the exact amount shown above via
+                        <ul>
+                            <li>M pesa: <span class="contact-info"><strong>0707398858</strong></span></li>
+                            <li>Airtel Money: <span class="contact-info"><strong>0752000550</strong></span></li>
+                            <li>Binance ID: <span class="contact-info"><strong>1108869988</strong></span></li>
+                        </ul>
+                    </li>
+                    <li>Take a screenshot of the transaction confirmation</li>
+                    <li>WhatsApp the screenshot to <span class="contact-info">0752000550</span></li>
+                    <ul>
+                        <li><strong>DONE</strong> Get your Logins immediately</li></ul>
+                    
+                </ol>
+            </div>
+            
+            <a href="https://wa.me/254752000550" class="whatsapp-button" id="whatsapp-button">
+                <i class="fab fa-whatsapp"></i> Send Screenshot via WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Tab management
+        function switchTab(tabId) {
+            // Update active tab
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            const targetId = document.getElementById(tabId).getAttribute('href');
+            document.querySelector(targetId).classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('mainNav').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Sub-tab management
+        function switchSubTab(tabId) {
+            // Update active sub-tab
+            document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            
+            // Hide all sub-tab contents
+            document.querySelectorAll('.sub-tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show the selected sub-tab content
+            const targetId = document.getElementById(tabId).getAttribute('href');
+            document.querySelector(targetId).classList.add('active');
+        }
+        
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                switchTab(this.id);
+            });
+        });
+        
+        document.querySelectorAll('.sub-tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                switchSubTab(this.id);
+            });
+        });
+        
+        // Rent Tool function - Updated to include both USD and KES prices
+        function rentTool(name, usdPrice, kesPrice) {
+            // Update payment modal
+            document.getElementById('payment-tool-name').textContent = name;
+            document.getElementById('payment-tool-price').textContent = `Price: $${usdPrice} (KES ${kesPrice})`;
+            
+            // Update WhatsApp link with pre-filled message
+            const whatsappButton = document.getElementById('whatsapp-button');
+            const message = `Hello! I want to rent ${name}. I have sent KES ${kesPrice} ($${usdPrice}). Here is my transaction screenshot:`;
+            whatsappButton.href = `https://wa.me/254752000550?text=${encodeURIComponent(message)}`;
+            
+            // Show payment modal
+            document.getElementById('payment-modal').style.display = 'flex';
+        }
+        
+        // Activation duration selection
+        let selectedDuration = '';
+        let selectedPrice = '';
+        
+        function selectActivationDuration(element, toolName) {
+            // Remove selected class from all options
+            document.querySelectorAll('.activation-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Store selected duration and price
+            selectedDuration = element.getAttribute('data-duration');
+            selectedPrice = element.getAttribute('data-price');
+            
+            // Enable the activation button
+            const activateBtn = document.getElementById('activate-amt-btn');
+            activateBtn.disabled = false;
+            activateBtn.textContent = `Get ${selectedDuration} Activation Now`;
+        }
+        
+        // Activate Tool function
+        function activateTool(name) {
+            if (!selectedDuration) {
+                alert('Please select a duration first');
+                return;
+            }
+            
+            // Update WhatsApp link with pre-filled message for activation
+            const message = `Hello! I want to activate ${name} for ${selectedDuration} at ${selectedPrice}. Please provide me with payment instructions.`;
+            window.open(`https://wa.me/254752000550?text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        // Select Service function
+        function selectService(name) {
+            // Update WhatsApp link with pre-filled message for service
+            const message = `Hello! I'm interested in your ${name} service. Please provide me with pricing and more details.`;
+            window.open(`https://wa.me/254752000550?text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        // Select Software function
+        function selectSoftware(name) {
+            // Update WhatsApp link with pre-filled message for software
+            const message = `Hello! I want to purchase ${name}. Please provide me with download instructions and payment details.`;
+            window.open(`https://wa.me/254752000550?text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        // All other existing JavaScript functions remain exactly the same
+        // ... (rest of JavaScript unchanged) ...
+    </script>
 </body>
 </html>
