@@ -23,14 +23,14 @@ KINGZ ENT TECHZ is a tool rental service offering various software tools and ser
 - Images hosted on GitHub raw URLs
 
 ## Contact Information
-- WhatsApp: 0752000550 (24/7)
+- WhatsApp: +51903509937 (24/7)
 - Phone: 0707398858
 - Email: kingzenttechz@gmail.com
 
 ## Payment Methods
 - M-Pesa: 0707398858
-- Airtel Money: 0752000550
-- Binance Pay ID: 1108869988
+- Airtel Money: +51903509937
+- Binance Pay ID: 480798182
 
 ## Running Locally
 Simply open `index.html` in a web browser or use a local web server:
