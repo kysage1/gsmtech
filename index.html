@@ -2,42 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <meta name="description" content="Spike Tech - Professional tool rentals, tech services, computer repair, and phone flashing. Available 24/7 for all your technical needs.">
     <meta name="theme-color" content="#2c3e50">
     <title>Spike Tech | Tool Rentals & Tech Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* All existing CSS remains the same */
+        /* Modern Enhanced Theme */
         :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
-            --accent: #3498db;
-            --accent2: #9b59b6;
-            --dark: #121a24;
-            --darker: #0d121b;
-            --light: #ecf0f1;
-            --success: #2ecc71;
-            --card-bg: #1a252f;
-            --text-light: #f0f0f0;
-            --text-gray: #b0b0b0;
-            --border: #2a3a4d;
+            --primary: #1e3a5f;
+            --secondary: #ff6b6b;
+            --accent: #4ecdc4;
+            --accent2: #a374ff;
+            --dark: #0f1419;
+            --darker: #0a0e12;
+            --light: #f8f9fa;
+            --success: #51cf66;
+            --card-bg: #1a1f2e;
+            --text-light: #ffffff;
+            --text-gray: #b8bdc7;
+            --border: #2d3748;
+            --glow: rgba(78, 205, 196, 0.3);
         }
         
         /* NEW SCROLLING BANNER STYLES */
        .scrolling-banner {
-    background: linear-gradient(90deg, #e74c3c, #3498db, #9b59b6);
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #a374ff, #51cf66);
     color: white;
-    padding: 10px 0;
+    padding: 12px 0;
     overflow: hidden;
-    position: sticky; /* CHANGED FROM relative TO sticky */
-    top: 0; /* ADDED THIS LINE */
+    position: sticky;
+    top: 0;
     white-space: nowrap;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    border-bottom: 1px solid var(--border);
-    z-index: 101; /* ADDED THIS LINE - higher than header z-index */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    border-bottom: 2px solid var(--accent);
+    z-index: 101;
+    backdrop-filter: blur(10px);
         }
         
         .scrolling-content {
@@ -95,28 +97,36 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        html {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
         body {
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, var(--darker) 100%);
             color: var(--text-light);
             line-height: 1.6;
             min-height: 100vh;
             position: relative;
+            overflow-x: hidden;
+            width: 100%;
         }
         header {
-            background: rgba(18, 26, 36, 0.95);
+            background: rgba(15, 20, 25, 0.98);
             color: white;
             padding: 1rem 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.5);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid var(--accent);
         }
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
         .header-container {
             display: flex;
@@ -228,8 +238,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(18, 26, 36, 0.85), rgba(18, 26, 36, 0.85)), 
-                        url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.98), rgba(78, 205, 196, 0.92), rgba(163, 116, 255, 0.85));
             color: white;
             padding: 4rem 0;
             text-align: center;
@@ -237,8 +246,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 0 0 20px 20px;
+            border-radius: 0 0 24px 24px;
             margin-bottom: 3rem;
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3), 0 0 30px rgba(163, 116, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.2), transparent 70%);
+            pointer-events: none;
         }
         .hero-content {
             max-width: 800px;
@@ -259,13 +281,15 @@
         }
         .hero-badge {
             display: inline-block;
-            background: var(--secondary);
-            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--secondary), #ff8787);
+            padding: 0.6rem 1.8rem;
             border-radius: 30px;
             font-size: 1rem;
             margin-bottom: 1.5rem;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
         .support-number {
             display: inline-flex;
@@ -293,23 +317,29 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             margin: 3rem 0;
+            width: 100%;
+        }
+        @media (max-width: 350px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
         }
         .tool-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             transform: translateY(0);
             position: relative;
         }
         .tool-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-            border-color: rgba(231, 76, 60, 0.3);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(78, 205, 196, 0.2), 0 0 20px var(--glow);
+            border-color: var(--accent);
         }
         .tool-header {
             background: rgba(0,0,0,0.2);
@@ -379,41 +409,43 @@
         }
         .btn {
             display: block;
-            background: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary), #ff8787);
             color: white;
             text-align: center;
-            padding: 0.8rem;
-            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             margin-top: 1rem;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
         .btn:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            background: linear-gradient(135deg, #ff8787, var(--secondary));
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
         }
         .btn-cyber {
-            background: var(--accent2);
+            background: linear-gradient(135deg, var(--accent2), #c49fff);
         }
         .btn-cyber:hover {
-            background: #8e44ad;
-            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
+            background: linear-gradient(135deg, #c49fff, var(--accent2));
+            box-shadow: 0 8px 25px rgba(163, 116, 255, 0.5);
         }
         .btn-outline {
             background: transparent;
             border: 2px solid var(--accent);
             color: var(--accent);
+            box-shadow: 0 0 10px rgba(78, 205, 196, 0.2);
         }
         .btn-outline:hover {
-            background: rgba(52, 152, 219, 0.1);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+            background: var(--accent);
+            color: var(--darker);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
         }
         /* Payment Methods */
         .payment-methods {
@@ -425,17 +457,18 @@
         }
         .payment-method {
             background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            min-width: 200px;
+            padding: 2rem;
+            border-radius: 16px;
+            min-width: 220px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: 2px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .payment-method:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(78, 205, 196, 0.2), 0 0 15px var(--glow);
+            border-color: var(--accent);
         }
         .payment-method i {
             font-size: 2.5rem;
@@ -450,12 +483,13 @@
             margin-top: 0.5rem;
         }
         footer {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             color: var(--text-gray);
-            padding: 2rem 0;
+            padding: 2.5rem 0;
             text-align: center;
             margin-top: 5rem;
-            border-top: 1px solid var(--border);
+            border-top: 2px solid var(--accent);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
         }
         
         /* New Styles */
@@ -484,20 +518,25 @@
         }
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--text-light);
             margin: 2rem 0 1rem;
             position: relative;
-            font-weight: 700;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 0.8rem auto;
-            border-radius: 2px;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            margin: 1rem auto;
+            border-radius: 3px;
+            box-shadow: 0 0 15px var(--glow);
         }
         .section-subtitle {
             text-align: center;
@@ -532,20 +571,20 @@
         }
         .service-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             transform: translateY(0);
             position: relative;
         }
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-            border-color: rgba(231, 76, 60, 0.3);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(163, 116, 255, 0.2), 0 0 20px rgba(163, 116, 255, 0.3);
+            border-color: var(--accent2);
         }
         .service-header {
             background: rgba(0,0,0,0.2);
@@ -645,11 +684,16 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .scrolling-banner {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
+                padding: 10px 0;
             }
             
             .scrolling-content span {
-                margin: 0 10px;
+                margin: 0 12px;
+            }
+            
+            .container {
+                padding: 0 15px;
             }
             
             .header-container {
@@ -667,10 +711,18 @@
             .nav-tab {
                 margin-left: 0;
                 margin-right: 1rem;
-                font-size: 0.9rem;
+                font-size: 0.95rem;
+            }
+            .hero {
+                padding: 3rem 0;
+                min-height: 350px;
             }
             .hero h1 {
                 font-size: 2rem;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             .mobile-menu-btn {
                 display: block;
@@ -691,9 +743,9 @@
                 margin: 0.5rem 0;
                 width: 100%;
                 text-align: center;
-                padding: 0.5rem;
-                background: rgba(255,255,255,0.1);
-                border-radius: 4px;
+                padding: 0.7rem;
+                background: rgba(78, 205, 196, 0.1);
+                border-radius: 8px;
             }
             .header-actions {
                 position: static;
@@ -702,6 +754,40 @@
             .user-dropdown {
                 left: 0;
                 right: auto;
+            }
+        }
+        
+        /* Tablet responsive */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                max-width: 95%;
+                padding: 0 20px;
+            }
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+        }
+        
+        /* Small mobile responsive */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .container {
+                padding: 0 10px;
+            }
+            .tool-card, .service-card {
+                margin: 0 auto;
+                max-width: 100%;
             }
         }
         
@@ -1362,7 +1448,7 @@
             <span>•</span>
             <span><i class="fab fa-whatsapp whatsapp-logo"></i> +51 903509937</span>
             <span>•</span>
-            <span><i class="fas fa-phone phone-logo"></i> 0752000550</span>
+            <span><i class="fas fa-phone phone-logo"></i> +51903509937</span>
             <span>•</span>
             <span><i class="fas fa-phone phone-logo"></i> 0707398858</span>
             <span>•</span>
@@ -1378,7 +1464,7 @@
             <span>•</span>
             <span><i class="fab fa-whatsapp whatsapp-logo"></i> +51 903509937</span>
             <span>•</span>
-            <span><i class="fas fa-phone phone-logo"></i> 0752000550</span>
+            <span><i class="fas fa-phone phone-logo"></i> +51903509937</span>
             <span>•</span>
             <span><i class="fas fa-phone phone-logo"></i> 0707398858</span>
             <span>•</span>
@@ -1443,7 +1529,7 @@
                 <h1>Professional Digital Services</h1>
                 <p>Our online computer service and digital tool rentals give you the freedom to tackle any project,without hefty investment..</p>
                 <a href="https://wa.me/51903509937" class="support-number">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: +51903509937 (24/7)
                 </a>
             </div>
         </div>
@@ -1503,7 +1589,7 @@
                 <h1>Our Rental Tools</h1>
                 <p>Get Login ID/password INSTANTLY after payment. No waiting!</p>
                 <a href="https://wa.me/51903509937" class="support-number">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: +51903509937 (24/7)
                 </a>
             </div>
         </div>
@@ -2625,7 +2711,7 @@
                 <h1>Online Computer Services</h1>
                 <p>Access our wide range of online services including cyber services, software downloads, and digital typing</p>
                 <a href="https://wa.me/51903509937" class="support-number">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: +51903509937 (24/7)
                 </a>
             </div>
         </div>
@@ -2854,7 +2940,7 @@
                         <h3>How It Works</h3>
                         <p>Upload your scanned or photographed documents and we'll type them to digital text format.</p>
                         <ul>
-                            <li>Upload your document via WhatsApp to 0752000550</li>
+                            <li>Upload your document via WhatsApp to +51903509937</li>
                             <li>Specify the reason for upload and any special requirements</li>
                             <li>We'll process your document and return the digital version</li>
                             <li>Payment is required after you confirm the quality of the work</li>
@@ -2883,7 +2969,7 @@
                 <h1>Digital tools and Computer Services</h1>
                 <p>Learn about our rental services and how we can help you with your digital needs</p>
                 <a href="https://wa.me/51903509937" class="support-number">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: +51903509937 (24/7)
                 </a>
             </div>
         </div>
@@ -2957,7 +3043,7 @@
                 <h1>Customer Support</h1>
                 <p>We're here to help you with any questions or issues</p>
                 <a href="https://wa.me/51903509937" class="support-number">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: +51903509937 (24/7)
                 </a>
             </div>
         </div>
@@ -3017,7 +3103,7 @@
                 <h1>Legal Use of Software</h1>
                 <p>Important information about the legal use of our rental tools and services</p>
                 <a href="https://wa.me/51903509937" class="support-number">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: +51903509937 (24/7)
                 </a>
             </div>
         </div>
@@ -3067,7 +3153,7 @@
                 <h1>Payment Options</h1>
                 <p>Choose your preferred payment method and receive credentials instantly</p>
                 <a href="https://wa.me/51903509937" class="support-number">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support: +51903509937 (24/7)
                 </a>
             </div>
         </div>
@@ -3086,14 +3172,14 @@
                 <div class="payment-method">
                     <i class="fas fa-mobile-alt"></i>
                     <h4>Airtel Money (Matembo)</h4>
-                    <div class="payment-number">0752000550</div>
+                    <div class="payment-number">+51903509937</div>
                 </div>
                 
                 <div class="payment-method">
                     <i class="fab fa-bitcoin"></i>
                     <h4>Binance Pay</h4>
                     <div class="payment-number">
-                        ID: 1108869988<br>
+                        ID: 480798182<br>
                         Name: Kingz Technologiez
                     </div>
                 </div>
@@ -3106,14 +3192,14 @@
                 <ol style="padding-left: 1.5rem; color: var(--text-gray);">
                     <li style="margin-bottom: 0.5rem;">Choose your tool or service</li>
                     <li style="margin-bottom: 0.5rem;">Send exact amount via payment method</li>
-                    <li style="margin-bottom: 0.5rem;">WhatsApp transaction code to 0752000550</li>
+                    <li style="margin-bottom: 0.5rem;">WhatsApp transaction code to +51903509937</li>
                     <li style="margin-bottom: 0.5rem;">Receive login credentials INSTANTLY</li>
                     <li>Access begins immediately</li>
                 </ol>
                 <p style="margin-top: 1.5rem; font-weight: 500; color: var(--accent); display: flex; align-items: center; gap: 10px;">
                     <i class="fas fa-phone"></i> 
-                    <a href="tel:0752000550" style="color: inherit; text-decoration: none;">
-                        Need help? Call us anytime: 0752000550
+                    <a href="tel:+51903509937" style="color: inherit; text-decoration: none;">
+                        Need help? Call us anytime: +51903509937
                     </a>
                 </p>
             </div>
@@ -3126,7 +3212,7 @@
             <p style="margin-top: 0.5rem;">
                 24/7 Support: 
                 <a href="https://wa.me/51903509937" style="color: var(--accent); text-decoration: none;">WhatsApp +51 903509937</a> | 
-                <a href="tel:0752000550" style="color: var(--accent); text-decoration: none;">Call 0752000550</a> | 
+                <a href="tel:+51903509937" style="color: var(--accent); text-decoration: none;">Call +51903509937</a> | 
                 <a href="tel:0707398858" style="color: var(--accent); text-decoration: none;">Call 0707398858</a>
             </p>
             <p style="margin-top: 0.5rem; font-size: 0.9rem;">
@@ -3251,12 +3337,12 @@
                     <li>Send the exact amount shown above via
                         <ul>
                             <li>M pesa: <span class="contact-info"><strong>0707398858</strong></span></li>
-                            <li>Airtel Money: <span class="contact-info"><strong>0752000550</strong></span></li>
-                            <li>Binance ID: <span class="contact-info"><strong>1108869988</strong></span></li>
+                            <li>Airtel Money: <span class="contact-info"><strong>+51903509937</strong></span></li>
+                            <li>Binance ID: <span class="contact-info"><strong>480798182</strong></span></li>
                         </ul>
                     </li>
                     <li>Take a screenshot of the transaction confirmation</li>
-                    <li>WhatsApp the screenshot to <span class="contact-info">0752000550</span></li>
+                    <li>WhatsApp the screenshot to <span class="contact-info">+51903509937</span></li>
                     <ul>
                         <li><strong>DONE</strong> Get your Logins immediately</li></ul>
                     
@@ -3495,7 +3581,7 @@
             if (lowerMessage.includes('contact') || lowerMessage.includes('call') || lowerMessage.includes('phone') || lowerMessage.includes('whatsapp')) {
                 return `You can reach us through:<br><br>
                 📱 WhatsApp: <a href="https://wa.me/51903509937" style="color: #25D366;">+51 903509937</a><br>
-                📞 Phone: 0752000550<br>
+                📞 Phone: +51903509937<br>
                 📞 Phone: 0707398858<br>
                 📧 Email: contact@spiketech.com<br><br>
                 We're available 24/7 for your convenience!`;
@@ -3536,7 +3622,7 @@
             // Default response
             return `Thanks for your message! For detailed assistance, please contact our support team:<br><br>
             📱 WhatsApp: <a href="https://wa.me/51903509937" style="color: #25D366;">+51 903509937</a><br>
-            📞 Phone: 0752000550 / 0707398858<br><br>
+            📞 Phone: +51903509937 / 0707398858<br><br>
             Or ask me about our tools, services, or pricing!`;
         }
         
