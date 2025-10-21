@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KINGZ ENT TECHZ | Tool Rentals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Spike Tech - Professional tool rentals, tech services, computer repair, and phone flashing. Available 24/7 for all your technical needs.">
+    <meta name="theme-color" content="#2c3e50">
+    <title>Spike Tech | Tool Rentals & Tech Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* All existing CSS remains the same */
@@ -1056,6 +1058,296 @@
         .sub-tab-content.active {
             display: block;
         }
+        
+        /* AI Chat Button Hover Effects */
+        .whatsapp-btn:hover,
+        .ai-chat-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+        }
+        
+        /* AI Chat Window */
+        .ai-chat-window {
+            position: fixed;
+            bottom: 160px;
+            right: 20px;
+            width: 90%;
+            max-width: 380px;
+            height: 500px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--darker) 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            display: none;
+            flex-direction: column;
+            z-index: 98;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .ai-chat-window.active {
+            display: flex;
+        }
+        
+        .ai-chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        
+        .ai-chat-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ai-chat-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        
+        .ai-chat-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .ai-chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .ai-message {
+            display: flex;
+            gap: 10px;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .ai-message.user {
+            flex-direction: row-reverse;
+        }
+        
+        .ai-message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .ai-message.bot .ai-message-avatar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .ai-message.user .ai-message-avatar {
+            background: var(--accent);
+        }
+        
+        .ai-message-content {
+            background: var(--card-bg);
+            padding: 12px 16px;
+            border-radius: 15px;
+            max-width: 75%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            word-wrap: break-word;
+        }
+        
+        .ai-message.user .ai-message-content {
+            background: var(--accent);
+        }
+        
+        .ai-chat-input-area {
+            padding: 15px;
+            border-top: 2px solid var(--border);
+            background: var(--card-bg);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .ai-chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            background: var(--darker);
+            color: var(--text-light);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .ai-chat-input:focus {
+            border-color: var(--accent);
+        }
+        
+        .ai-chat-send {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .ai-chat-send:hover {
+            transform: scale(1.1);
+        }
+        
+        .ai-chat-send:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .ai-typing {
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+        }
+        
+        .ai-typing span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: typing 1.4s infinite;
+        }
+        
+        .ai-typing span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .ai-typing span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            .ai-chat-window {
+                width: calc(100% - 40px);
+                max-width: none;
+                height: 450px;
+                bottom: 140px;
+            }
+            
+            .whatsapp-btn,
+            .ai-chat-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+            
+            .ai-chat-btn {
+                bottom: 85px;
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ai-chat-window {
+                width: calc(100% - 20px);
+                height: 400px;
+                bottom: 130px;
+                right: 10px;
+            }
+            
+            .whatsapp-btn,
+            .ai-chat-btn {
+                width: 50px;
+                height: 50px;
+                right: 10px;
+            }
+            
+            .whatsapp-btn {
+                font-size: 1.6rem;
+            }
+            
+            .ai-chat-btn {
+                bottom: 75px;
+                font-size: 1.2rem;
+            }
+            
+            .ai-message-content {
+                max-width: 85%;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Better scrollbar for chat */
+        .ai-chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .ai-chat-messages::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+        
+        .ai-chat-messages::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .ai-chat-messages::-webkit-scrollbar-thumb:hover {
+            background: var(--accent2);
+        }
     </style>
 </head>
 <body>
@@ -1068,15 +1360,15 @@
             <span>•</span>
             <span>All Phone Flashing and Unlocking</span>
             <span>•</span>
-            <span><i class="fab fa-whatsapp whatsapp-logo"></i> 0752000550</span>
+            <span><i class="fab fa-whatsapp whatsapp-logo"></i> +51 903509937</span>
+            <span>•</span>
+            <span><i class="fas fa-phone phone-logo"></i> 0752000550</span>
             <span>•</span>
             <span><i class="fas fa-phone phone-logo"></i> 0707398858</span>
             <span>•</span>
-            <span><i class="fas fa-envelope email-logo"></i> kingzenttechz@gmail.com</span>
+            <span><i class="fas fa-envelope email-logo"></i> contact@spiketech.com</span>
             <span>•</span>
-            <span>or visit our website https://kingzenttechz.com</span>
-            <span>•</span>
-            <span class="welcome-text">!!Welcome!!</span>
+            <span class="welcome-text">!!Welcome to Spike Tech!!</span>
             <span>•</span>
             <span>For Computer Repair</span>
             <span>•</span>
@@ -1084,15 +1376,15 @@
             <span>•</span>
             <span>All Phone Flashing and Unlocking</span>
             <span>•</span>
-            <span><i class="fab fa-whatsapp whatsapp-logo"></i> 0752000550</span>
+            <span><i class="fab fa-whatsapp whatsapp-logo"></i> +51 903509937</span>
+            <span>•</span>
+            <span><i class="fas fa-phone phone-logo"></i> 0752000550</span>
             <span>•</span>
             <span><i class="fas fa-phone phone-logo"></i> 0707398858</span>
             <span>•</span>
-            <span><i class="fas fa-envelope email-logo"></i> kingzenttechz@gmail.com</span>
+            <span><i class="fas fa-envelope email-logo"></i> contact@spiketech.com</span>
             <span>•</span>
-            <span>or visit our website https://kingzenttechz.com</span>
-            <span>•</span>
-            <span class="welcome-text">!!Welcome!!</span>
+            <span class="welcome-text">!!Welcome to Spike Tech!!</span>
         </div>
     </div>
 
@@ -1105,7 +1397,7 @@
             
             <div class="logo-container">
                 <div class="logo">
-                    <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/Screenshot%202025-09-14%20185659.png" alt="KINGZ ENT TECHZ Logo" style="height: 80px;">
+                    <img src="https://raw.githubusercontent.com/KingzEntTechz/kingz/main/Screenshot%202025-09-14%20185659.png" alt="Spike Tech Logo" style="height: 80px;">
                 </div>
                 <div class="tagline">Tool Rentals</div>
             </div>
@@ -1150,7 +1442,7 @@
                 <div class="hero-badge">INSTANT 24/7 DELIVERY</div>
                 <h1>Professional Digital Services</h1>
                 <p>Our online computer service and digital tool rentals give you the freedom to tackle any project,without hefty investment..</p>
-                <a href="https://wa.me/254752000550" class="support-number">
+                <a href="https://wa.me/51903509937" class="support-number">
                     <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
                 </a>
             </div>
@@ -1196,7 +1488,7 @@
                             Our support team is available 24/7 to assist you with any questions or issues. 
                             Contact us via WhatsApp.
                         </p>
-                        <a href="https://wa.me/254752000550" class="btn btn-outline">Contact Support</a>
+                        <a href="https://wa.me/51903509937" class="btn btn-outline">Contact Support</a>
                     </div>
                 </div>
             </div>
@@ -1210,7 +1502,7 @@
                 <div class="hero-badge">INSTANT 24/7 AUTO-DELIVERY</div>
                 <h1>Our Rental Tools</h1>
                 <p>Get Login ID/password INSTANTLY after payment. No waiting!</p>
-                <a href="https://wa.me/254752000550" class="support-number">
+                <a href="https://wa.me/51903509937" class="support-number">
                     <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
                 </a>
             </div>
@@ -2332,7 +2624,7 @@
                 <div class="hero-badge">ONLINE COMPUTER SERVICES</div>
                 <h1>Online Computer Services</h1>
                 <p>Access our wide range of online services including cyber services, software downloads, and digital typing</p>
-                <a href="https://wa.me/254752000550" class="support-number">
+                <a href="https://wa.me/51903509937" class="support-number">
                     <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
                 </a>
             </div>
@@ -2575,7 +2867,7 @@
                         <p><strong>$0.3 per page</strong> for documents with 10 or more pages</p>
                     </div>
                     
-                    <a href="https://wa.me/254752000550?text=Hello!%20I%20want%20to%20use%20your%20Digital%20Typing%20Services.%20Please%20provide%20me%20with%20more%20information." class="whatsapp-button">
+                    <a href="https://wa.me/51903509937?text=Hello!%20I%20want%20to%20use%20your%20Digital%20Typing%20Services.%20Please%20provide%20me%20with%20more%20information." class="whatsapp-button">
                         <i class="fab fa-whatsapp"></i> Contact for Digital Typing Services
                     </a>
                 </div>
@@ -2590,7 +2882,7 @@
                 <div class="hero-badge">ABOUT OUR SERVICES</div>
                 <h1>Digital tools and Computer Services</h1>
                 <p>Learn about our rental services and how we can help you with your digital needs</p>
-                <a href="https://wa.me/254752000550" class="support-number">
+                <a href="https://wa.me/51903509937" class="support-number">
                     <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
                 </a>
             </div>
@@ -2664,7 +2956,7 @@
                 <div class="hero-badge">SUPPORT CENTER</div>
                 <h1>Customer Support</h1>
                 <p>We're here to help you with any questions or issues</p>
-                <a href="https://wa.me/254752000550" class="support-number">
+                <a href="https://wa.me/51903509937" class="support-number">
                     <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
                 </a>
             </div>
@@ -2684,7 +2976,7 @@
                         <p class="service-description">
                             Get instant support via WhatsApp. Our team is available 24/7 to assist you with any issues.
                         </p>
-                        <a href="https://wa.me/254752000550" class="btn">Contact via WhatsApp</a>
+                        <a href="https://wa.me/51903509937" class="btn">Contact via WhatsApp</a>
                     </div>
                 </div>
                 
@@ -2724,7 +3016,7 @@
                 <div class="hero-badge">LEGAL INFORMATION</div>
                 <h1>Legal Use of Software</h1>
                 <p>Important information about the legal use of our rental tools and services</p>
-                <a href="https://wa.me/254752000550" class="support-number">
+                <a href="https://wa.me/51903509937" class="support-number">
                     <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
                 </a>
             </div>
@@ -2774,7 +3066,7 @@
                 <div class="hero-badge">PAYMENT METHODS</div>
                 <h1>Payment Options</h1>
                 <p>Choose your preferred payment method and receive credentials instantly</p>
-                <a href="https://wa.me/254752000550" class="support-number">
+                <a href="https://wa.me/51903509937" class="support-number">
                     <i class="fab fa-whatsapp"></i> WhatsApp Support: 0752000550 (24/7)
                 </a>
             </div>
@@ -2830,10 +3122,11 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 KINGZ ENT TECHZ</p>
+            <p>© 2025 Spike Tech</p>
             <p style="margin-top: 0.5rem;">
                 24/7 Support: 
-                <a href="https://wa.me/254752000550" style="color: var(--accent); text-decoration: none;">WhatsApp 0752000550</a> | 
+                <a href="https://wa.me/51903509937" style="color: var(--accent); text-decoration: none;">WhatsApp +51 903509937</a> | 
+                <a href="tel:0752000550" style="color: var(--accent); text-decoration: none;">Call 0752000550</a> | 
                 <a href="tel:0707398858" style="color: var(--accent); text-decoration: none;">Call 0707398858</a>
             </p>
             <p style="margin-top: 0.5rem; font-size: 0.9rem;">
@@ -2843,9 +3136,45 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/254752000550" class="whatsapp-btn" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 99;">
+    <a href="https://wa.me/51903509937" class="whatsapp-btn" target="_blank" title="Contact us on WhatsApp" style="position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 99; transition: transform 0.3s ease, box-shadow 0.3s ease;">
         <i class="fab fa-whatsapp"></i>
     </a>
+    
+    <!-- AI Chat Support Button -->
+    <button class="ai-chat-btn" id="aiChatBtn" title="Chat with AI Support" style="position: fixed; bottom: 90px; right: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; width: 60px; height: 60px; border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4); z-index: 99; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        <i class="fas fa-robot"></i>
+    </button>
+    
+    <!-- AI Chat Window -->
+    <div class="ai-chat-window" id="aiChatWindow">
+        <div class="ai-chat-header">
+            <h3><i class="fas fa-robot"></i> AI Support</h3>
+            <button class="ai-chat-close" id="aiChatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+            <div class="ai-message bot">
+                <div class="ai-message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ai-message-content">
+                    Hi! I'm Spike Tech AI Assistant. How can I help you today? I can assist with:
+                    <br><br>
+                    • Tool rentals and pricing
+                    <br>• Technical support
+                    <br>• Service information
+                    <br>• General inquiries
+                </div>
+            </div>
+        </div>
+        <div class="ai-chat-input-area">
+            <input type="text" class="ai-chat-input" id="aiChatInput" placeholder="Type your message...">
+            <button class="ai-chat-send" id="aiChatSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
     
     <!-- Login Modal -->
     <div class="modal" id="login-modal">
@@ -2934,7 +3263,7 @@
                 </ol>
             </div>
             
-            <a href="https://wa.me/254752000550" class="whatsapp-button" id="whatsapp-button">
+            <a href="https://wa.me/51903509937" class="whatsapp-button" id="whatsapp-button">
                 <i class="fab fa-whatsapp"></i> Send Screenshot via WhatsApp
             </a>
         </div>
@@ -3002,7 +3331,7 @@
             // Update WhatsApp link with pre-filled message
             const whatsappButton = document.getElementById('whatsapp-button');
             const message = `Hello! I want to rent ${name}. I have sent KES ${kesPrice} ($${usdPrice}). Here is my transaction screenshot:`;
-            whatsappButton.href = `https://wa.me/254752000550?text=${encodeURIComponent(message)}`;
+            whatsappButton.href = `https://wa.me/51903509937?text=${encodeURIComponent(message)}`;
             
             // Show payment modal
             document.getElementById('payment-modal').style.display = 'flex';
@@ -3040,22 +3369,184 @@
             
             // Update WhatsApp link with pre-filled message for activation
             const message = `Hello! I want to activate ${name} for ${selectedDuration} at ${selectedPrice}. Please provide me with payment instructions.`;
-            window.open(`https://wa.me/254752000550?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/51903509937?text=${encodeURIComponent(message)}`, '_blank');
         }
         
         // Select Service function
         function selectService(name) {
             // Update WhatsApp link with pre-filled message for service
             const message = `Hello! I'm interested in your ${name} service. Please provide me with pricing and more details.`;
-            window.open(`https://wa.me/254752000550?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/51903509937?text=${encodeURIComponent(message)}`, '_blank');
         }
         
         // Select Software function
         function selectSoftware(name) {
             // Update WhatsApp link with pre-filled message for software
             const message = `Hello! I want to purchase ${name}. Please provide me with download instructions and payment details.`;
-            window.open(`https://wa.me/254752000550?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/51903509937?text=${encodeURIComponent(message)}`, '_blank');
         }
+        
+        // AI Chat Functionality
+        const aiChatBtn = document.getElementById('aiChatBtn');
+        const aiChatWindow = document.getElementById('aiChatWindow');
+        const aiChatClose = document.getElementById('aiChatClose');
+        const aiChatInput = document.getElementById('aiChatInput');
+        const aiChatSend = document.getElementById('aiChatSend');
+        const aiChatMessages = document.getElementById('aiChatMessages');
+        
+        // Toggle AI Chat Window
+        aiChatBtn.addEventListener('click', () => {
+            aiChatWindow.classList.toggle('active');
+            if (aiChatWindow.classList.contains('active')) {
+                aiChatInput.focus();
+            }
+        });
+        
+        // Close AI Chat Window
+        aiChatClose.addEventListener('click', () => {
+            aiChatWindow.classList.remove('active');
+        });
+        
+        // Send Message
+        function sendAiMessage() {
+            const message = aiChatInput.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            aiChatInput.value = '';
+            
+            // Show typing indicator
+            const typingId = showTyping();
+            
+            // Simulate AI response with intelligent replies
+            setTimeout(() => {
+                removeTyping(typingId);
+                const response = getAiResponse(message);
+                addMessage(response, 'bot');
+            }, 1500);
+        }
+        
+        // Add message to chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `ai-message ${sender}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'ai-message-avatar';
+            avatar.innerHTML = sender === 'bot' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
+            
+            const content = document.createElement('div');
+            content.className = 'ai-message-content';
+            content.innerHTML = text;
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(content);
+            aiChatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+        }
+        
+        // Show typing indicator
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'ai-message bot';
+            typingDiv.id = 'typing-indicator-' + Date.now();
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'ai-message-avatar';
+            avatar.innerHTML = '<i class="fas fa-robot"></i>';
+            
+            const content = document.createElement('div');
+            content.className = 'ai-message-content';
+            content.innerHTML = '<div class="ai-typing"><span></span><span></span><span></span></div>';
+            
+            typingDiv.appendChild(avatar);
+            typingDiv.appendChild(content);
+            aiChatMessages.appendChild(typingDiv);
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+            
+            return typingDiv.id;
+        }
+        
+        // Remove typing indicator
+        function removeTyping(id) {
+            const typing = document.getElementById(id);
+            if (typing) typing.remove();
+        }
+        
+        // Get AI Response
+        function getAiResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            // Tool rental queries
+            if (lowerMessage.includes('tool') || lowerMessage.includes('rent') || lowerMessage.includes('price') || lowerMessage.includes('cost')) {
+                return `We offer a wide range of tools for rent! Popular options include:<br><br>
+                • Drills & Power Tools<br>
+                • Construction Equipment<br>
+                • Garden Tools<br>
+                • Measuring Instruments<br><br>
+                Prices start from as low as $5/day. Would you like specific pricing for any tool?<br><br>
+                📞 Contact: <a href="https://wa.me/51903509937" style="color: #25D366;">+51 903509937</a>`;
+            }
+            
+            // Contact queries
+            if (lowerMessage.includes('contact') || lowerMessage.includes('call') || lowerMessage.includes('phone') || lowerMessage.includes('whatsapp')) {
+                return `You can reach us through:<br><br>
+                📱 WhatsApp: <a href="https://wa.me/51903509937" style="color: #25D366;">+51 903509937</a><br>
+                📞 Phone: 0752000550<br>
+                📞 Phone: 0707398858<br>
+                📧 Email: contact@spiketech.com<br><br>
+                We're available 24/7 for your convenience!`;
+            }
+            
+            // Service queries
+            if (lowerMessage.includes('service') || lowerMessage.includes('repair') || lowerMessage.includes('fix')) {
+                return `Spike Tech offers comprehensive tech services:<br><br>
+                🔧 Computer Repair & Maintenance<br>
+                🖨️ Printer & Scanner Configuration<br>
+                📱 Phone Flashing & Unlocking<br>
+                💻 Software Installation<br>
+                🌐 Online Computer Services<br><br>
+                What service are you interested in?`;
+            }
+            
+            // Hours queries
+            if (lowerMessage.includes('hour') || lowerMessage.includes('open') || lowerMessage.includes('time')) {
+                return `We're open 24/7! Our team is always ready to assist you.<br><br>
+                For immediate assistance, contact us on WhatsApp: <a href="https://wa.me/51903509937" style="color: #25D366;">+51 903509937</a>`;
+            }
+            
+            // Thank you responses
+            if (lowerMessage.includes('thank') || lowerMessage.includes('thanks')) {
+                return `You're very welcome! If you have any other questions, feel free to ask. We're here to help! 😊`;
+            }
+            
+            // Greeting responses
+            if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+                return `Hello! 👋 Welcome to Spike Tech! I'm here to help you with:<br><br>
+                • Tool rentals<br>
+                • Tech services<br>
+                • Pricing information<br>
+                • General inquiries<br><br>
+                What can I help you with today?`;
+            }
+            
+            // Default response
+            return `Thanks for your message! For detailed assistance, please contact our support team:<br><br>
+            📱 WhatsApp: <a href="https://wa.me/51903509937" style="color: #25D366;">+51 903509937</a><br>
+            📞 Phone: 0752000550 / 0707398858<br><br>
+            Or ask me about our tools, services, or pricing!`;
+        }
+        
+        // Event listeners
+        aiChatSend.addEventListener('click', sendAiMessage);
+        aiChatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendAiMessage();
+            }
+        });
         
         // All other existing JavaScript functions remain exactly the same
         // ... (rest of JavaScript unchanged) ...
